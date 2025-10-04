@@ -1,0 +1,159 @@
+@startuml
+!theme plain
+
+title **BankAlpy ER Diagram**
+
+entity "Currency" as Currency {
+    *IdCurrency : INT <<PK>>
+    --
+    CurrencyName : VARCHAR(15)
+    CurrencyCode : VARCHAR(3)
+}
+
+entity "AccountType" as AccountType {
+    *IdAccountType : INT <<PK>>
+    --
+    AccountTypeName : VARCHAR(25)
+}
+
+entity "CurrencyAccountType" as CurrencyAccountType {
+    *IdCurrencyAccountType : INT <<PK>>
+    --
+    FkCurrency : INT <<FK>>
+    FkAccountType : INT <<FK>>
+}
+
+entity "Account" as Account {
+    *IdAccount : INT <<PK>>
+    --
+    AccountNumber : VARCHAR(25)
+    OpeningDate : DATE
+    Balance : DECIMAL(18,2)
+    IsActive : BIT
+    FkAccountType : INT <<FK>>
+}
+
+entity "Customer" as Customer {
+    *IdCustomer : INT <<PK>>
+    --
+    FirstName : VARCHAR(25)
+    LastName1 : VARCHAR(30)
+    LastName2 : VARCHAR(30)
+    Sex : VARCHAR(10)
+    NIF : VARCHAR(10)
+    BirthDate : DATE
+    AddressLine : VARCHAR(60)
+    ZipCode : VARCHAR(10)
+    City : VARCHAR(50)
+}
+
+entity "AccountCustomer" as AccountCustomer {
+    *IdAccountCustomer : INT <<PK>>
+    --
+    HolderType : VARCHAR(25)
+    FkAccount : INT <<FK>>
+    FkCustomer : INT <<FK>>
+}
+
+entity "BankTransaction" as BankTransaction {
+    *IdBankTransaction : INT <<PK>>
+    --
+    TransactionType : VARCHAR(32)
+    Amount : DECIMAL(18,2)
+    TransactionDate : DATE
+    BalanceAfter : DECIMAL(18,2)
+    FkAccount : INT <<FK>>
+}
+
+entity "Loan" as Loan {
+    *IdLoan : INT <<PK>>
+    --
+    LoanAmount : DECIMAL(18,2)
+    InterestRate : DECIMAL(5,3)
+    StartDate : DATE
+    DueDate : DATE
+    RemainingBalance : DECIMAL(18,2)
+    IsActive : BIT
+    FkAccount : INT <<FK>>
+}
+
+entity "Country" as Country {
+    *IdCountry : INT <<PK>>
+    --
+    CountryName : VARCHAR(25)
+    CountryCode : VARCHAR(5)
+}
+
+entity "City" as City {
+    *IdCity : INT <<PK>>
+    --
+    CityName : VARCHAR(75)
+    FkCountry : INT <<FK>>
+}
+
+entity "ZipCode" as ZipCode {
+    *IdZipCode : INT <<PK>>
+    --
+    ZipCodeValue : VARCHAR(8)
+}
+
+entity "ZipCodeCity" as ZipCodeCity {
+    *IdZipCodeCity : INT <<PK>>
+    --
+    FkZipCode : INT <<FK>>
+    FkCity : INT <<FK>>
+}
+
+entity "StreetType" as StreetType {
+    *IdStreetType : INT <<PK>>
+    --
+    StreetTypeName : VARCHAR(25)
+}
+
+entity "AccountAddress" as AccountAddress {
+    *IdAddress : INT <<PK>>
+    --
+    StreetName : VARCHAR(50)
+    StreetNumber : INT
+    FloorNumber : INT
+    DoorNumber : CHAR(3)
+    FkStreetType : INT <<FK>>
+    FkZipCode : INT <<FK>>
+}
+
+entity "CustomerAddress" as CustomerAddress {
+    *IdCustomerAddress : INT <<PK>>
+    --
+    FkCustomer : INT <<FK>>
+    FkAddress : INT <<FK>>
+}
+
+
+' ===========================
+' Relationships with cardinalities
+' ===========================
+
+Currency ||--o{ CurrencyAccountType : "1:N"
+AccountType ||--o{ CurrencyAccountType : "1:N"
+
+AccountType ||--o{ Account : "1:N"
+
+Account ||--o{ AccountCustomer : "1:N"
+Customer ||--o{ AccountCustomer : "1:N"
+
+Account ||--o{ BankTransaction : "1:N"
+
+Account ||--o{ Loan : "1:N"
+
+Country ||--o{ City : "1:N"
+
+ZipCode ||--o{ ZipCodeCity : "1:N"
+City ||--o{ ZipCodeCity : "1:N"
+
+StreetType ||--o{ AccountAddress : "1:N"
+ZipCode ||--o{ AccountAddress : "1:N"
+
+Customer ||--o{ CustomerAddress : "1:N"
+AccountAddress ||--o{ CustomerAddress : "1:N"
+
+@enduml
