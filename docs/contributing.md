@@ -23,3 +23,5 @@ Thank you for contributing! Please follow these guidelines.
 ## Issues & Feature requests
 - Open GitHub issues describing the problem or enhancement.
 - Provide steps to reproduce (for bugs) or a clear use case (for features).
+
+[⬅️ Back to Index](../README.md#table-of-contents)

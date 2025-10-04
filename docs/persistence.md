@@ -15,3 +15,5 @@
 ## Migration
 - Create SQL scripts under `sql/` and keep them under version control.
 - Use example schema in `docs/ER_UML.md` as the starting point.
+
+[⬅️ Back to Index](../README.md#table-of-contents)

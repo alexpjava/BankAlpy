@@ -11,3 +11,7 @@
 git clone https://github.com/your-username/BankAlPy.git
 cd BankAlPy
 
+
+```
+
+[⬅️ Back to Index](../README.md#table-of-contents)

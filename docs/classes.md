@@ -82,3 +82,5 @@ public enum TransactionType { DEPOSIT, WITHDRAWAL, LOAN_DEPOSIT, LOAN_WITHDRAWAL
 - `public boolean isActive()`
 
 ---
+
+[⬅️ Back to Index](../README.md#table-of-contents)

@@ -18,3 +18,6 @@
 ## Example
 - `CustomerServiceTest` — tests customer creation, account linking.
 - `LoanServiceTest` — tests loan eligibility, amortization schedule.
+
+```
+[⬅️ Back to Index](../README.md#table-of-contents)

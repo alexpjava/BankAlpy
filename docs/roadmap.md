@@ -41,3 +41,6 @@ This project follows an iterative approach. Each version should be a commit/rele
 - Use feature branches: `feature/<short-description>`
 - Main branches: `main` (stable), `develop` (integration)
 - Tag releases semantically: `v0.1.0`, `v0.2.0`, ...
+
+```
+[⬅️ Back to Index](../README.md#table-of-contents)

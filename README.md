@@ -20,7 +20,7 @@ The goal is to learn and apply best practices while scaling the project step by 
 ## Table of contents
 - [Project overview](docs/overview.md)
 - [Actions Build Badge](docs/actions-build-badge.md)
-- [Architecture & Design](docs/ARCHITECTURE.md)
+- [Architecture & Design](docs/architectureE.md)
 - [ER Diagram Logical Domain](docs/logical-domain.md)
 - [ER Diagram Geographical Domain](docs/geographical-domain.md)
 - [Bank System UML (Class Diagram)](docs/bank-system-uml.md)
@@ -28,9 +28,9 @@ The goal is to learn and apply best practices while scaling the project step by 
 - [Roadmap & Versions](docs/ROADMAP.md)
 - [Installation & Quick start](docs/INSTALLATION.md)
 - [Testing](docs/TESTING.md)
-- [Persistence & H2](docs/PERSISTENCE.md)
+- [Persistence & H2](docs/persistence.md)
 - [Contributing](docs/CONTRIBUTING.md)
-- [Changelog](docs/CHANGELOG.md)
+- [Changelog](docs/changelog.md)
 - [License & Contact](#license--contact)
 
 

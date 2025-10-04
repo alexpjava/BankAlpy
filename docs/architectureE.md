@@ -24,3 +24,5 @@
 - Use `LocalDate` / `LocalDateTime` for dates/timestamps.
 - Avoid static ID counters for production; use DB-generated IDs.
 - Plan migrations with Flyway or Liquibase when moving beyond H2.
+
+[⬅️ Back to Index](../README.md#table-of-contents)
