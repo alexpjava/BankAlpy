@@ -1,0 +1,49 @@
+# MiniBank (a.k.a BankAlpy) Project
+# BankAlPy — *MiniBank* Java Backend (evolving to SQL persistence)
+
+
+**Short description**  
+
+Welcome to **BankAlpy**, a backend-focused project built in **Java** focused on progressively evolving from an in-memory model to full SQL persistence. The repository is designed for iterative learning and progressive enhancement: start with plain Java classes, add MVC structure, include tests, introduce an H2 database, and finally migrate to Spring Boot.
+The goal is to learn and apply best practices while scaling the project step by step.
+
+---
+
+![Java](https://img.shields.io/badge/Java-17-orange)
+![Maven](https://img.shields.io/badge/Maven-3.8+-blue)
+![Build](https://github.com/AlexPJava/BankAlpy/actions/workflows/ci.yml/badge.svg)
+
+---
+
+---
+
+## Table of contents
+- [Project overview](docs/overview.md)
+- [Actions Build Badge](docs/actions-build-badge.md)
+- [Architecture & Design](docs/ARCHITECTURE.md)
+- [ER Diagram Logical Domain](docs/logical-domain.md)
+- [ER Diagram Geographical Domain](docs/geographical-domain.md)
+- [Bank System UML (Class Diagram)](docs/bank-system-uml.md)
+- [Domain model (classes)](docs/CLASSES.md)
+- [Roadmap & Versions](docs/ROADMAP.md)
+- [Installation & Quick start](docs/INSTALLATION.md)
+- [Testing](docs/TESTING.md)
+- [Persistence & H2](docs/PERSISTENCE.md)
+- [Contributing](docs/CONTRIBUTING.md)
+- [Changelog](docs/CHANGELOG.md)
+- [License & Contact](#license--contact)
+
+
+---
+
+## Quick links
+- Start reading: [Project overview](docs/PROJECT_OVERVIEW.md)
+- Domain model and class specs: [CLASSES.md](docs/CLASSES.md)
+- Initial SQL schema and ER diagram: [ER_UML.md](docs/ER_UML.md)
+
+---
+
+## License & Contact
+Specify your license (e.g. `MIT`) in `LICENSE` file.
+
+Maintainer / Contact: AlexP alexp.java@gmail.com

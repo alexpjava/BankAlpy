@@ -1,0 +1,26 @@
+# Architecture & design
+
+## Initial architecture (v1)
+- Simple package layout (domain + basic services).
+- In-memory repositories using `HashMap` or lists.
+- No framework dependency — plain Maven Java project.
+
+## Target architecture
+- **MVC** (Model — Service/Controller — Repository) when moving to an application architecture.
+- When migrating to Spring Boot:
+  - Controllers → Spring REST controllers (`@RestController`)
+  - Services → `@Service` beans
+  - Repositories → Spring Data JPA (`@Repository` / `JpaRepository`) backed by H2 during development
+  - Use configuration profiles (e.g., `dev`, `test`, `prod`)
+
+## Layers & responsibilities
+- **Domain (Model):** POJOs that represent `Customer`, `Account`, `Transaction`, `Loan`.
+- **Service:** Business logic (loan validation, payment scheduling, transaction orchestration).
+- **Repository:** Data access (initially in-memory; later JPA/H2).
+- **Controller / CLI / UI:** Entry points for interaction (later REST API or CLI).
+
+## Non-functional considerations
+- Use `BigDecimal` for monetary values (avoid `float`/`double`).
+- Use `LocalDate` / `LocalDateTime` for dates/timestamps.
+- Avoid static ID counters for production; use DB-generated IDs.
+- Plan migrations with Flyway or Liquibase when moving beyond H2.
