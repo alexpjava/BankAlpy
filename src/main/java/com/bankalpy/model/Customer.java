@@ -45,7 +45,7 @@ public class Customer {
      * @param firstLastName First last name of the customer
      * @param secondLastName Second last name of the customer
      * @param nif National Identification Number of the customer
-     * @param dateBirth Birth date of the customer
+     * @param dateBirth Birthdate of the customer
      * @param sex Sex of the customer
      * @param address Address of the customer
      * @param zipCode Zip code of the customer's address
