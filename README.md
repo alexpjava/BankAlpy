@@ -24,6 +24,7 @@ The goal is to learn and apply best practices while scaling the project step by 
 - [ER Diagram Logical Domain](docs/logical-domain.md)
 - [ER Diagram Geographical Domain](docs/geographical-domain.md)
 - [Bank System UML (Class Diagram)](docs/bank-system-uml.md)
+- [MVC Architecture overview](docs/MVC-architecture-overview.md)
 - [Domain model (classes)](docs/CLASSES.md)
 - [Roadmap & Versions](docs/ROADMAP.md)
 - [Installation & Quick start](docs/INSTALLATION.md)
@@ -31,6 +32,7 @@ The goal is to learn and apply best practices while scaling the project step by 
 - [Persistence & H2](docs/persistence.md)
 - [Contributing](docs/CONTRIBUTING.md)
 - [Changelog](docs/changelog.md)
+- [Javadoc "A small explanation"](docs/javadoc-readme.md)
 - [License & Contact](#license--contact)
 
 

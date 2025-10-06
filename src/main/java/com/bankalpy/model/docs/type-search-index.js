@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.bankalpy.model","l":"Account"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.bankalpy.model","l":"Customer"},{"p":"com.bankalpy.model","l":"Transaction"},{"p":"com.bankalpy.model","l":"Transaction.Type"}];updateSearchResults();
