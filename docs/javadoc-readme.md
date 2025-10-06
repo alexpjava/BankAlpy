@@ -1,37 +1,35 @@
-# Documentación del Proyecto Java con Javadoc
+# Java Project Documentation with Javadoc
 
-## 📄 ¿Qué es Javadoc?
+## 📄 What is Javadoc?
 
-[Javadoc](https://docs.oracle.com/en/java/javase/17/docs/specs/javadoc/doc-comment-spec.html) es una herramienta de Java que **genera documentación en formato HTML** directamente desde los comentarios del código.
-Permite describir clases, métodos, variables, parámetros y valores de retorno de forma clara y profesional.
+[Javadoc](https://docs.oracle.com/en/java/javase/17/docs/specs/javadoc/doc-comment-spec.html) is a tool in Java that **generates HTML documentation** directly from comments in your source code. It allows you to describe classes, methods, variables, parameters, and return values in a clear and professional way.
 
 ---
 
-## 🛠 Cómo usar Javadoc
+## 🛠 How to Use Javadoc
 
-### 1. Comentar el código
+### 1. Comment Your Code
 
-Los comentarios de Javadoc empiezan con `/**` y terminan con `*/`.
-Se colocan **sobre clases, constructores o métodos**.
+Javadoc comments start with `/**` and end with `*/`. They are placed **above classes, constructors, or methods**.
 
-**Ejemplo:**
+**Example:**
 
 ```java
 /**
- * Representa un cliente del banco con información personal y cuentas.
+ * Represents a bank customer with personal information and accounts.
  */
 public class Customer {
 
-    /** Nombre del cliente */
+    /** Customer's name */
     private String name;
 
-    /** Lista de cuentas del cliente */
+    /** List of customer's accounts */
     private List<Account> accounts;
 
     /**
-     * Constructor que inicializa el nombre del cliente.
+     * Constructor that initializes the customer's name.
      *
-     * @param name Nombre del cliente
+     * @param name Customer's name
      */
     public Customer(String name) {
         this.name = name;
@@ -39,9 +37,9 @@ public class Customer {
     }
 
     /**
-     * Devuelve el nombre del cliente.
+     * Returns the customer's name.
      *
-     * @return El nombre del cliente
+     * @return Customer's name
      */
     public String getName() {
         return name;
@@ -51,24 +49,25 @@ public class Customer {
 
 ---
 
-### 2. Generar la documentación
+### 2. Generate Documentation
 
-1. Abre la terminal en la carpeta del proyecto.
-2. Ejecuta el comando:
+1. Open the terminal in your project folder.
+2. Run the command:
 
 ```bash
 javadoc -d docs *.java
 ```
 
-* `-d docs` → carpeta donde se generará la documentación HTML.
-* `*.java` → todos los archivos Java de la carpeta.
+* `-d docs` → folder where the HTML documentation will be created.
+* `*.java` → all Java files in the folder.
 
-3. Abre `docs/index.html` en un navegador para ver la documentación generada.
+3. Open `docs/index.html` in a web browser to view the generated documentation.
 
 ---
 
-## ✅ Beneficios de Javadoc
+## ✅ Benefits of Javadoc
 
-* La documentación está **cerca del código**, fácil de actualizar.
-* Genera documentación profesional y navegable en HTML.
-* Facilita que otros desarrolladores comprendan y utilicen tu código rápidamente.
+* Documentation stays **close to the code**, making it easy to update.
+* Generates professional, navigable **HTML documentation**.
+* Helps other developers quickly understand and use your code.
+
