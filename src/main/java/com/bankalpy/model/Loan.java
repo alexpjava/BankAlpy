@@ -10,7 +10,7 @@ public class Loan {
 /**
  * Represents a loan entity in the system.
  * This class contains all relevant information about a loan,
- * including amount, interest rate, start and due dates, and related account.
+ * including amount, interest rate, start and due dates, related account and the transactions associated to the Loan..
  *
  * @author
  */
