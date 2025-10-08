@@ -25,6 +25,7 @@ The goal is to learn and apply best practices while scaling the project step by 
 - [ER Diagram Geographical Domain](docs/geographical-domain.md)
 - [Bank System UML (Class Diagram)](docs/bank-system-uml.md)
 - [MVC Architecture overview](docs/MVC-architecture-overview.md)
+- [SQL server to H2 ](docs/sqlserver-to-H2.md)
 - [Domain model (classes)](docs/CLASSES.md)
 - [Roadmap & Versions](docs/ROADMAP.md)
 - [Installation & Quick start](docs/INSTALLATION.md)

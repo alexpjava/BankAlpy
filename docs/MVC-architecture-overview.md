@@ -20,6 +20,90 @@ Flow diagram:
 ```
 User → Controller → Model (Business Logic + Data) → Controller → View
 ```
+MVC Architecture Diagram for Bank Project
+
+This diagram represents the MVC structure of the Bank project, including
+all business logic methods.
+
+# MVC Architecture Diagram for Bank Project
+
+```mermaid
+%%---------------------------------------------------
+%% Mermaid diagram: MVC architecture for Bank project
+%%---------------------------------------------------
+graph TD
+    %% LAYERS
+    subgraph Model["🟩 Model Layer"]
+        A1[Account]
+        A2[Customer]
+        A3[Loan]
+        A4[BankTransaction]
+    end
+
+    subgraph Repository["🗄️ Repository Layer"]
+        R1[AccountRepository]
+        R2[CustomerRepository]
+        R3[LoanRepository]
+        R4[TransactionRepository]
+    end
+
+    subgraph Service["⚙️ Service Layer (Business Logic)"]
+        S1["AccountService
+        ---
+        deposit()
+        withdraw()
+        transfer()"]
+
+        S2["CustomerService
+        ---
+        registerCustomer()
+        validateCustomer()"]
+
+        S3["LoanService
+        ---
+        createLoan()
+        payLoan()
+        checkLoanStatus()"]
+
+        S4["TransactionService
+        ---
+        recordTransaction()
+        getHistory()"]
+    end
+
+    subgraph Controller["🎯 Controller Layer"]
+        C1[AccountController]
+        C2[CustomerController]
+        C3[LoanController]
+    end
+
+    subgraph View["🖥️ View Layer"]
+        V1[Console CLI / Tests]
+    end
+
+    %% CONNECTIONS
+    V1 --> C1
+    V1 --> C2
+    V1 --> C3
+
+    C1 --> S1
+    C2 --> S2
+    C3 --> S3
+
+    S1 --> R1
+    S1 --> S4
+    S2 --> R2
+    S3 --> R3
+    S4 --> R4
+
+    R1 --> A1
+    R2 --> A2
+    R3 --> A3
+    R4 --> A4
+```
+
+
+
 
 ## 🧱 Typical Project Structure
 
@@ -64,14 +148,8 @@ public class Account {
     private String owner;
     private double balance;
 
-    // Constructor, getters, setters, and business logic
-    public void deposit(double amount) {
-        balance += amount;
-    }
-
-    public void withdraw(double amount) {
-        if (balance >= amount) balance -= amount;
-    }
+    // Constructor, getters, setters
+    
 }
 ```
 
@@ -176,6 +254,42 @@ responses.
 
 ---
 
+```java
+# 💡 Example: AccountService (Business Logic Layer)
+
+This example shows how the **Service Layer** contains business logic in the MVC architecture.
+
+java package com.bankalpy.service;
+
+import com.bankalpy.model.Account;
+import com.bankalpy.repository.AccountRepository;
+
+public class AccountService {
+
+    private final AccountRepository accountRepository;
+
+    public AccountService(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
+
+    // Deposit money into an account
+    public void deposit(Long accountId, double amount) {
+        Account account = accountRepository.findById(accountId);
+        account.setBalance(account.getBalance() + amount);
+        accountRepository.update(account);
+    }
+
+    // Withdraw money if balance allows
+    public void withdraw(Long accountId, double amount) {
+        Account account = accountRepository.findById(accountId);
+        if (account.getBalance() < amount) {
+            throw new IllegalArgumentException("Insufficient funds.");
+        }
+        account.setBalance(account.getBalance() - amount);
+        accountRepository.update(account);
+    }
+}
+```
 ---
 
 ## 💡 Summary
@@ -184,3 +298,5 @@ responses.
 - **Controller:** Mediates between user actions and the model.
 - **View:** Displays results to the user.
 - **Goal:** Keep responsibilities clear and code modular, preparing for Spring integration later.
+
+---
