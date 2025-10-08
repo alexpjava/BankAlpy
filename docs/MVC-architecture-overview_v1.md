@@ -9,18 +9,18 @@ The project is a simple **banking system** built with **Java**, **Maven**, and a
 
 ## 📋 Table of Contents
 
-1. [MVC Structure](#🧩-mvc-structure)
-2. [Typical Project Structure](#🧱-typical-project-structure)
-3. [Model (M)](#🔹-1-model-m)
-4. [View (V)](#🔹-2-view-v)
-5. [Controller (C)](#🔹-3-controller-c)
+1. [MVC Structure](#mvc-structure)
+2. [Typical Project Structure](#typical-project-structure)
+3. [Model (M)](#1-model-m)
+4. [View (V)](#2-view-v)
+5. [Controller (C)](#3-controller-c)
 6. [Business Logic & Service Layer](#⚙️-business-logic)
-7. [Summary](#💡-summary)
-8. [Further Reading](#📚-further-reading)
+7. [Summary](#summary)
+8. [Further Reading](#further-reading)
 
 ---
 
-## 🧩 MVC Structure
+## MVC Structure
 
 **MVC** stands for:
 - **Model** – Data and business logic (e.g., `Account`, `Customer`, `Loan`, `Transaction`).
@@ -107,7 +107,7 @@ graph TD
 
 ---
 
-## 🧱 Typical Project Structure
+## Typical Project Structure
 
 ```
 bank-project/
@@ -139,7 +139,7 @@ bank-project/
 
 ---
 
-## 🔹 1. Model (M)
+## 1. Model (M)
 
 **Models** are your data classes and everything related to data persistence.  
 In this project: `Account`, `Customer`, `Loan`, `BankTransaction`.
@@ -167,7 +167,7 @@ Models interact with data sources such as files, memory, or databases (like H2).
 
 ---
 
-## 🔹 2. View (V)
+## 2. View (V)
 
 The **View** is responsible for displaying information and receiving user input.  
 Without a web framework, this can be a **console interface**, a GUI (Swing, JavaFX), or API responses (for REST).
@@ -191,7 +191,7 @@ public class BankView {
 
 ---
 
-## 🔹 3. Controller (C)
+## 3. Controller (C)
 
 The **Controller** acts as a bridge between View and Model.  
 It receives user actions, calls appropriate services, updates the Model, and refreshes the View as needed.
@@ -248,7 +248,7 @@ public class App {
 
 ---
 
-## ⚙️ Business Logic & Service Layer
+## Business Logic & Service Layer
 
 Business logic defines the **rules and behaviors of the banking domain**—not just data storage.
 
@@ -320,7 +320,7 @@ public class AccountService {
 ```
 ---
 
-## 💡 Summary
+## Summary
 
 - **Model:** Defines entities and basic behaviors.
 - **Controller:** Mediates between user actions and services.
@@ -333,8 +333,9 @@ Keep responsibilities clear and code modular—preparing for future framework in
 
 ---
 
-## 📚 Further Reading
+## Further Reading
 
 - [Spring Framework: MVC Pattern](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc)
 - [Java MVC Design Pattern](https://www.geeksforgeeks.org/mvc-design-pattern/)
 - [H2 Database Introduction](https://www.h2database.com/html/main.html)
+
