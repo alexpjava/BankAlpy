@@ -1,7 +1,9 @@
 package com.bankalpy.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Loan {
 
@@ -35,7 +37,10 @@ public class Loan {
     private boolean isActive;
 
     /** Foreign key referencing the associated account. */
-    private int fkAccount;
+    //private int fkAccount;
+
+    //** List of transactions associated with a Loan. */
+    private List<Transaction> loanTransactions;
 
     /**
      * Default constructor.
@@ -55,10 +60,10 @@ public class Loan {
      * @param dueDate Due date of the loan.
      * @param remainingBalance Remaining amount to be paid.
      * @param isActive Status of the loan (true if active).
-     * @param fkAccount Foreign key referencing the account.
+     * //@param fkAccount Foreign key referencing the account.
      */
     public Loan(int idLoan, BigDecimal loanAmount, BigDecimal interestRate, Date startDate, Date dueDate,
-                BigDecimal remainingBalance, boolean isActive, int fkAccount) {
+                BigDecimal remainingBalance, boolean isActive, ) {
         this.idLoan = idLoan;
         this.loanAmount = loanAmount;
         this.interestRate = interestRate;
@@ -66,17 +71,20 @@ public class Loan {
         this.dueDate = dueDate;
         this.remainingBalance = remainingBalance;
         this.isActive = isActive;
-        this.fkAccount = fkAccount;
+        // this.fkAccount = fkAccount;
+
+        // Crea una llista buida dins de l'objecte customer per poder ser omplerta amb els comptes que pugui tenir
+        this.loanTransactions = new ArrayList<>();
     }
+
+
+    // ============================
+    // Getters
+    // ============================
 
     /** @return the loan ID */
     public int getIdLoan() {
         return idLoan;
-    }
-
-    /** @param idLoan the loan ID to set */
-    public void setIdLoan(int idLoan) {
-        this.idLoan = idLoan;
     }
 
     /** @return the total loan amount */
@@ -84,29 +92,15 @@ public class Loan {
         return loanAmount;
     }
 
-    /** @param loanAmount the total loan amount to set */
-    public void setLoanAmount(BigDecimal loanAmount) {
-        this.loanAmount = loanAmount;
-    }
-
     /** @return the interest rate */
     public BigDecimal getInterestRate() {
         return interestRate;
     }
 
-    /** @param interestRate the interest rate to set */
-    public void setInterestRate(BigDecimal interestRate) {
-        this.interestRate = interestRate;
-    }
 
     /** @return the start date of the loan */
     public Date getStartDate() {
         return startDate;
-    }
-
-    /** @param startDate the start date to set */
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
     }
 
     /** @return the due date of the loan */
@@ -114,14 +108,43 @@ public class Loan {
         return dueDate;
     }
 
-    /** @param dueDate the due date to set */
-    public void setDueDate(Date dueDate) {
-        this.dueDate = dueDate;
-    }
-
     /** @return the remaining balance */
     public BigDecimal getRemainingBalance() {
         return remainingBalance;
+    }
+    /** @return true if the loan is active, false otherwise */
+    public boolean getIsActive() {
+        return isActive;
+    }
+
+
+    // ============================
+    // Setters
+    // ============================
+
+    /** @param idLoan the loan ID to set */
+    public void setIdLoan(int idLoan) {
+        this.idLoan = idLoan;
+    }
+
+    /** @param loanAmount the total loan amount to set */
+    public void setLoanAmount(BigDecimal loanAmount) {
+        this.loanAmount = loanAmount;
+    }
+
+    /** @param interestRate the interest rate to set */
+    public void setInterestRate(BigDecimal interestRate) {
+        this.interestRate = interestRate;
+    }
+
+    /** @param startDate the start date to set */
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    /** @param dueDate the due date to set */
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
     }
 
     /** @param remainingBalance the remaining balance to set */
@@ -129,24 +152,20 @@ public class Loan {
         this.remainingBalance = remainingBalance;
     }
 
-    /** @return true if the loan is active, false otherwise */
-    public boolean isActive() {
-        return isActive;
-    }
-
     /** @param isActive set the loan status */
     public void setActive(boolean isActive) {
         this.isActive = isActive;
     }
 
-    /** @return the foreign key of the associated account */
-    public int getFkAccount() {
-        return fkAccount;
+    /**
+     * Returns the list of accounts associated with the customer.
+     *
+     * @return List of Account objects
+     */
+    public List<Transaction> getLoanTransactions() {
+        return loanTransactions;
     }
 
-    /** @param fkAccount the foreign key of the associated account to set */
-    public void setFkAccount(int fkAccount) {
-        this.fkAccount = fkAccount;
-    }
+
 
 }
