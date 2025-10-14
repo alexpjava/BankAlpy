@@ -24,6 +24,7 @@ The goal is to learn and apply best practices while scaling the project step by 
 - [ER Diagram Logical Domain](docs/logical-domain.md)
 - [ER Diagram Geographical Domain](docs/geographical-domain.md)
 - [Bank System UML (Class Diagram)](docs/bank-system-uml.md)
+- [Bank System UML MVC (Class Diagram MVC)](docs/bank-system-uml-MVC.md)
 - [MVC Architecture overview](docs/MVC-architecture-overview_v1.md)
 - [SQL server to H2 ](docs/sqlserver-to-H2.md)
 - [Domain model (classes)](docs/CLASSES.md)

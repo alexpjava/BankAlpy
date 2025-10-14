@@ -1,0 +1,117 @@
+# Overview
+---
+
+### 💡 What this diagram represents
+
+- **Controller** → the layer that handles user or API requests (input).
+- **Service** → contains the business logic of the application.
+- **Repository** → the persistence layer (in this version it may use `HashMap`, later migrating to H2/SQL).
+- **Model** → domain classes (`Customer`, `Account`, `Transaction`, `Loan`).
+- The relationships between the classes show:
+    - A `Customer` can have multiple `Account` objects.
+    - Each `Account` can contain several `Transaction` and `Loan` objects.
+    - A `Loan` also generates its own `Transaction` entries (loan deposits and withdrawals).
+
+---
+
+[⬅️ Back to Index](../README.md#table-of-contents)
+
+# Bank System UML MVC (Class Diagram MVC)
+
+## 🧩 UML Diagram — BankAlpy (MVC Architecture)
+
+```mermaid
+classDiagram
+direction LR
+
+%% ===== CAPAS MVC =====
+class Controller {
+  +CustomerController
+  +AccountController
+  +TransactionController
+  +LoanController
+}
+
+class Service {
+  +CustomerService
+  +AccountService
+  +TransactionService
+  +LoanService
+}
+
+class Repository {
+  +CustomerRepository
+  +AccountRepository
+  +TransactionRepository
+  +LoanRepository
+}
+
+%% ====== MODELO DE DOMINIO ======
+class Customer {
+  -int idCus
+  -String name
+  -String firstLastName
+  -String secondLastName
+  -String nif
+  -LocalDate dateBirth
+  -String sex
+  -String address
+  -String zipCode
+  -String city
+  -List~Account~ accounts
+  +getFullName()
+}
+
+class Account {
+  -int idAccount
+  -String accountNumber
+  -LocalDate openingDate
+  -float balance
+  -boolean active
+  -List~Transaction~ transactions
+  -List~Loan~ loans
+  +deposit(amount)
+  +withdraw(amount)
+}
+
+class Transaction {
+  -Type type
+  -float amount
+  -LocalDateTime date
+  -float balanceAfter
+}
+
+class Type {
+  <<enumeration>>
+  DEPOSIT
+  WITHDRAWAL
+  LOAN_DEPOSIT
+  LOAN_WITHDRAWAL
+}
+
+class Loan {
+  -int idLo
+  -float amount
+  -float interest
+  -LocalDate startDate
+  -LocalDate dueDate
+  -float remainingBalance
+  -boolean active
+  -List~Transaction~ transactions
+}
+
+%% ===== RELACIONES =====
+Customer "1" --> "*" Account
+Account "1" --> "*" Transaction
+Account "1" --> "*" Loan
+Loan "1" --> "*" Transaction
+Transaction --> Type : uses
+
+%% ===== CONEXIONES ENTRE CAPAS =====
+Controller --> Service : calls
+Service --> Repository : uses
+Repository --> Customer : manages
+Repository --> Account : manages
+Repository --> Transaction : manages
+Repository --> Loan : manages
+```

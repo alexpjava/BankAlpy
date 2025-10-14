@@ -10,7 +10,7 @@ public class Loan {
 /**
  * Represents a loan entity in the system.
  * This class contains all relevant information about a loan,
- * including amount, interest rate, start and due dates, related account and the transactions associated to the Loan..
+ * including amount, interest rate, start and due dates, related account and the transactions associated to the Loan.
  *
  * @author
  */
@@ -63,7 +63,7 @@ public class Loan {
      * //@param fkAccount Foreign key referencing the account.
      */
     public Loan(int idLoan, BigDecimal loanAmount, BigDecimal interestRate, Date startDate, Date dueDate,
-                BigDecimal remainingBalance, boolean isActive, ) {
+                BigDecimal remainingBalance, boolean isActive) {
         this.idLoan = idLoan;
         this.loanAmount = loanAmount;
         this.interestRate = interestRate;
