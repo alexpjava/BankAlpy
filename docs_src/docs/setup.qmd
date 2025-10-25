@@ -1,0 +1,12 @@
+---
+title: "Setup"
+---
+
+# Setup Instructions
+
+Instructions to set up the BankAlpy project:
+
+- Java 17
+- Maven 3.8+
+- H2 Database
+- Quarto for documentation
