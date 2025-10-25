@@ -1,0 +1,9 @@
+---
+title: "Architecture"
+---
+
+# MVC Architecture
+
+- Model: domain entities (`Customer`, `Account`, `Transaction`, `Loan`)
+- View: CLI or REST endpoints
+- Controller: orchestrates business logic

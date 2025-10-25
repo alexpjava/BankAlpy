@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "BankAlpy Backend Project"
+  description: "Backend Java MVC project with persistence and documentation in Quarto"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: architecture.qmd
+        text: Architecture
+      - href: setup.qmd
+        text: Setup
+      - href: uml.qmd
+        text: UML Diagram
+  page-navigation: true
+  repo-url: "https://github.com/alexpjava/BankAlpy"
+  repo-actions: [issue, edit, source]
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-copy: true
+    highlight-style: github
+

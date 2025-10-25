@@ -1,0 +1,20 @@
+----
+ title: "BankAlpy Project"
+ ---
+
+ # 🏦 BankAlpy
+
+ **BankAlpy** is a backend Java project built using the **MVC architecture**.
+ It begins as a simple console application using in-memory data structures and evolves toward full persistence with **H2 SQL** and **Spring Boot**.
+
+ ## 🎯 Goals
+ - Understand backend design in Java.
+ - Apply the MVC architecture pattern.
+ - Learn persistence with H2 and SQL.
+ - Generate documentation with **Quarto** and publish it on GitHub Pages.
+
+ ## 📚 Sections
+ - [Architecture](architecture.qmd)
+ - [Setup & Build](setup.qmd)
+ - [UML Diagram](uml.qmd)
+

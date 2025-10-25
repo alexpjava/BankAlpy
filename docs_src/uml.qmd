@@ -1,0 +1,10 @@
+---
+title: "UML Diagram"
+---
+
+# UML Diagram
+
+```mermaid
+classDiagram
+Customer "1" --> "*" Account
+Account "1" --> "*" Transaction

@@ -17,7 +17,8 @@ It starts with in-memory storage (`HashMap` / `List`), then integrates with **H2
 ✅ In-memory persistence with Lists / HashMaps  
 ✅ Domain entities: `Customer`, `Account`, `Transaction`, `Loan`  
 ✅ Basic Controller + CLI view  
-✅ Unit tests with JUnit  
+✅ Unit tests with JUnit
+✅ Documentation website built with **Quarto**
 
 🚧 Planned:  
 - DAO interfaces for persistence abstraction  
@@ -25,6 +26,7 @@ It starts with in-memory storage (`HashMap` / `List`), then integrates with **H2
 - Migration to Spring Boot with REST API (View layer replaced)  
 - GitHub Actions for CI/CD  
 - Optional migration to Postgres/MySQL in production
+- GitHub Pages publication for Quarto documentation
 
 ---
 
@@ -40,47 +42,37 @@ It starts with in-memory storage (`HashMap` / `List`), then integrates with **H2
 
 ```text
 /bankalpy
-├─ .gitignore
-├─ src
-│  ├─ main
-│  │  ├─ java
-│  │  │  └─ com
-│  │  │     └─ bankalpy
-│  │  │        ├─ model             # Entities: Customer, Account, Transaction, Loan
-│  │  │        ├─ repository        # DAO interfaces + in-memory implementations
-│  │  │        ├─ controller        # Controllers (business logic)
-│  │  │        ├─ view              # CLI-based View (later replaced by REST API)
-│  │  │        └─ App.java          # Application entry point
-│  │  └─ resources
-│  │     └─ application.properties  # Configurations (H2 will be defined here in v2)
-│  └─ test
-│     └─ java
-│        └─ com
-│           └─ bankalpy
-│              ├─ repository        # Repository tests
-│              └─ controller        # Controller tests
-├─ docs
-├─ docs/
-│  ├─ PROJECT_OVERVIEW.md
-│  ├─ ARCHITECTURE.md
-│  ├─ CLASSES.md
-│  ├─ ER_UML.md
-│  ├─ ROADMAP.md
-│  ├─ INSTALLATION.md
-│  ├─ TESTING.md
-│  ├─ PERSISTENCE.md
-│  ├─ CONTRIBUTING.md
-│  ├─ CHANGELOG.md
-│  └─ design.md                     # Design decisions, ER diagram, migration plan
-├─ sql/ # SQL scripts / migrations  # SQL scripts (H2 init & schema)
-├─ .github
-│  └─ workflows
-│     └─ ci.yml                     # GitHub Actions CI
-├─ diagrams/ # ER / UML diagrams (PNG/SVG)
 ├─ pom.xml
-└─ README.md
+├─ README.md
+├─ .gitignore
+├─ docs/                       # Compiled Quarto documentation (output → GitHub Pages)
+├─ docs_src/                   # Source documentation for Quarto
+│  ├─ _quarto.yml              # Quarto configuration file
+│  ├─ index.qmd                # Main documentation page
+│  ├─ architecture.qmd         # MVC architecture explanation + UML
+│  ├─ setup.qmd                # Environment setup (Java, Maven, H2)
+│  └─ roadmap.qmd              # Project roadmap and evolution
+├─ src/
+│  ├─ main/
+│  │  ├─ java/com/bankalpy/
+│  │  │  ├─ model/             # Entities: Customer, Account, Transaction, Loan
+│  │  │  ├─ repository/        # DAO interfaces + in-memory implementations
+│  │  │  ├─ controller/        # Controllers (business logic)
+│  │  │  ├─ view/              # CLI-based View (later replaced by REST API)
+│  │  │  └─ App.java           # Application entry point
+│  │  └─ resources/
+│  │     └─ application.properties  # Configurations (H2 will be defined here)
+│  └─ test/java/com/bankalpy/
+│     ├─ repository/           # Repository tests
+│     └─ controller/           # Controller tests
+├─ sql/
+│  ├─ schema.sql               # H2 schema definition
+│  └─ data.sql                 # Initial dataset
+├─ .github/
+│  └─ workflows/
+│     ├─ ci.yml                # GitHub Actions for build/test
+│     └─ publish.yml           # Workflow for Quarto site deployment
 
 ```
-
 
 [⬅️ Back to Index](../README.md#table-of-contents)

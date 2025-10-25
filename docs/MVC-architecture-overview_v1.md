@@ -4,7 +4,7 @@ This document explains the **Model–View–Controller (MVC)** architecture patt
 Understanding this foundation will help you design clean, modular, and maintainable backend systems.
 
 The project is a simple **banking system** built with **Java**, **Maven**, and an **H2** in-memory database, following MVC for code organization.
-
+---
 ---
 
 ## 📋 Table of Contents
@@ -19,6 +19,7 @@ The project is a simple **banking system** built with **Java**, **Maven**, and a
 8. [Further Reading](#further-reading)
 
 ---
+[⬅️ Back to Index](../README.md#table-of-contents)
 
 ## MVC Structure
 

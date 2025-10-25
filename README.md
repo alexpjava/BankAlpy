@@ -12,7 +12,7 @@ The goal is to learn and apply best practices while scaling the project step by 
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![Maven](https://img.shields.io/badge/Maven-3.8+-blue)
 ![Build](https://github.com/AlexPJava/BankAlpy/actions/workflows/ci.yml/badge.svg)
-
+![Docs](https://img.shields.io/badge/docs-built%20with%20Quarto-green)
 ---
 
 ---
@@ -35,6 +35,7 @@ The goal is to learn and apply best practices while scaling the project step by 
 - [Contributing](docs/CONTRIBUTING.md)
 - [Changelog](docs/changelog.md)
 - [Javadoc "A small explanation"](docs/javadoc-readme.md)
+- [Configuracion del proyecto en Quarto"](docs/quarto-proyecto.md)
 - [License & Contact](#license--contact)
 
 
