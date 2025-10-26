@@ -1,0 +1,90 @@
+---
+ title: "Model Classes"
+---
+
+# Domain model & class specifications
+
+This document describes the main classes and their fields/methods. Types and names are suggested for clarity.
+
+> **Note:** For money, prefer `BigDecimal` (scale/precision). For IDs prefer `long` (or `Long` for nullable DB-backed IDs).
+
+***
+
+## Customer
+**Fields**
+- `private final Long id;` — unique identifier (DB-generated when persistent)
+- `private String name;`
+- `private String firstLastName;`
+- `private String secondLastName;`
+- `private final String nif;` — national ID (NIF)
+- `private final LocalDate dateOfBirth;`
+- `private final String sex;`
+- `private String address;`
+- `private String zipCode;`
+- `private String city;`
+- `private List<Account> accounts = new ArrayList<>();`
+
+**Suggested methods**
+- `public Account createAccount(...)`
+- `public List<Account> getAccounts()`
+- `public void addAccount(Account account)`
+- `public void removeAccount(Account account)`
+
+***
+
+## Account
+**Fields**
+- `private final Long id;`
+- `private final String accountNumber;`
+- `private final LocalDate openingDate;`
+- `private BigDecimal balance;`
+- `private boolean active;`
+- `private List<Transaction> transactions = new ArrayList<>();`
+- `private List<Loan> loans = new ArrayList<>();`
+
+**Suggested methods**
+- `public void deposit(BigDecimal amount)`
+- `public void withdraw(BigDecimal amount)` — throws `InsufficientFundsException` if not allowed
+- `public List<Transaction> listTransactions()`
+- `public boolean canGrantLoan(LoanRequest request)` — eligibility check
+- `public Loan createLoan(...)` — attach loan and initial deposit transaction for loan capital
+
+***
+
+## Transaction
+**Fields**
+- `private final Long id;`
+- `private final TransactionType type;`
+- `private final BigDecimal amount;`
+- `private final LocalDateTime date;`
+- `private final BigDecimal balanceAfter;`
+- `private Long relatedLoanId;` (nullable)
+
+**Enum**
+```java
+public enum TransactionType { DEPOSIT, WITHDRAWAL, LOAN_DEPOSIT, LOAN_WITHDRAWAL }
+```
+***
+
+## Loan
+**Fields**
+- `private final Long id;`
+- `private final BigDecimal amount;`  — original principal
+- `private final BigDecimal annualInterestRate;` — e.g. 0.035 for 3.5%
+- `private LocalDate startDate;`
+- `private LocalDate dueDate;`
+- `private BigDecimal remainingBalance;`
+- `private boolean active;`
+- `pprivate List<Transaction> transactions = new ArrayList<>();`
+
+
+**Suggested methods**
+- `public BigDecimal calculateMonthlyInstallment()` — uses annuity formula
+
+- `public List<AmortizationEntry> generateAmortizationSchedule()`
+- `public void applyMonthlyPayment(LocalDate date) — generates Transaction(s), reduce remaining balance`
+- `public boolean isActive()`
+
+***
+
+[⬅️ Back to Index](../README.md#table-of-contents)

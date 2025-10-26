@@ -1,0 +1,61 @@
+---
+ title: "SQL Server to H2"
+---
+
+
+# H2 Translation Notes for SQL Server BankAlPy Script
+
+This document summarizes the changes made to translate the original SQL Server script for the BankAlPy system into an H2-compatible script, keeping the same organization and constraint numbering for clarity.
+
+***
+
+## Summary of Changes
+
+### 1. Database Engine Differences
+- **SQL Server** uses `IDENTITY(1,1)` for auto-incrementing columns.
+- **H2** uses `AUTO_INCREMENT`.
+- `BIT` type in SQL Server is replaced with `BOOLEAN` in H2.
+- SQL Server `GO` statements are not needed in H2.
+- Constraint and table existence checks use `IF EXISTS` differently in H2.
+
+### 2. Constraint Handling
+- SQL Server uses `IF OBJECT_ID(..., 'F') IS NOT NULL` to check foreign key existence.
+- H2 uses `ALTER TABLE IF EXISTS ... DROP CONSTRAINT IF EXISTS ...`.
+- `ON DELETE CASCADE` is preserved.
+- All constraint numbering (1–7) is preserved for easy reference.
+
+### 3. Table Creation
+- Column types translated where necessary:
+  - `VARCHAR` remains the same.
+  - `DECIMAL(18,2)` remains the same.
+  - `DATE` remains the same.
+- Primary keys use `AUTO_INCREMENT` in H2.
+- `DEFAULT` values updated as needed (e.g., `IsActive` default changed from `1` to `TRUE`).
+
+### 4. Drop Statements
+- SQL Server `DROP TABLE IF EXISTS` and `DROP CONSTRAINT` translated to H2 syntax.
+- Order preserved to prevent foreign key conflicts.
+
+### 5. General Script Structure
+- Sections retained for clarity:
+  1. Drop constraints if they exist.
+  2. Drop tables if they exist.
+  3. Create tables.
+  4. Create constraints.
+- Comments preserved and translated to English where needed.
+
+***
+
+## Notes
+
+- The translated script keeps **all foreign key relationships intact**.
+- The order of creation respects dependencies (tables without FKs created first).
+- The script is ready to be executed in an H2 database without further changes.
+
+***
+
+## References
+
+- [H2 Database Documentation](https://h2database.com/html/main.html)
+- SQL Server to H2 type mappings and syntax adjustments
+

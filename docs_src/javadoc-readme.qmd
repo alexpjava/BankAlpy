@@ -1,10 +1,14 @@
-# Quarto Project Documentacion
+---
+ title: "Javadoc Documentation"
+---
 
-## 📄 What is Quarto?
+# Java Project Documentation with Javadoc
+
+## 📄 What is Javadoc?
 
 [Javadoc](https://docs.oracle.com/en/java/javase/17/docs/specs/javadoc/doc-comment-spec.html) is a tool in Java that **generates HTML documentation** directly from comments in your source code. It allows you to describe classes, methods, variables, parameters, and return values in a clear and professional way.
 
----
+***
 
 ## 🛠 How to Use Javadoc
 
@@ -47,9 +51,7 @@ public class Customer {
 }
 ```
 
-
-
----
+***
 
 ### 2. Generate Documentation
 
@@ -65,7 +67,7 @@ javadoc -d docs *.java
 
 3. Open `docs/index.html` in a web browser to view the generated documentation.
 
----
+***
 
 ## ✅ Benefits of Javadoc
 

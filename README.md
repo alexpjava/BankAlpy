@@ -35,7 +35,7 @@ The goal is to learn and apply best practices while scaling the project step by 
 - [Contributing](docs/CONTRIBUTING.md)
 - [Changelog](docs/changelog.md)
 - [Javadoc "A small explanation"](docs/javadoc-readme.md)
-- [Configuracion del proyecto en Quarto"](docs/quarto-proyecto.md)
+- [Quarto project](docs/quarto-project.md)
 - [License & Contact](#license--contact)
 
 
@@ -43,9 +43,9 @@ The goal is to learn and apply best practices while scaling the project step by 
 
 ## Quick links
 - Start reading: [Project overview](docs/overview.md)
-- Domain model and class specs: [CLASSES.md](docs/CLASSES.md)
+- Domain model and class specs: [CLASSES.md](docs/clases.md)
 - Initial SQL schema and ER diagram: [ER_UML.md](docs/bank-system-uml.md)
-- UML PNG:[ERD](docs/ERD.png)
+- UML PNG:[ERD](docs/erd.png)
 
 ---
 

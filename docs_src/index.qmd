@@ -2,19 +2,44 @@
  title: "BankAlpy Project"
 ---
 
- # 🏦 BankAlpy
+## BankAlpy
 
  **BankAlpy** is a backend Java project built using the **MVC architecture**.
  It begins as a simple console application using in-memory data structures and evolves toward full persistence with **H2 SQL** and **Spring Boot**.
 
- ## 🎯 Goals
+***
+
+## 🎯Goals
  - Understand backend design in Java.
  - Apply the MVC architecture pattern.
  - Learn persistence with H2 and SQL.
  - Generate documentation with **Quarto** and publish it on GitHub Pages.
 
- ## 📚 Sections
- - [Architecture](architecture.qmd)
- - [Setup & Build](setup.qmd)
- - [UML Diagram](uml.qmd)
+***
+
+## 📚 Sections
+
+ - [Project overview](overview.qmd)
+ - [Architecture & Design](architecture.qmd)
+ - [Actions Build Badge](actions-build-badge.qmd)
+ - [ER Diagram Logical Domain](logical-domain.qmd)
+ - [ER Diagram Geographical Domain](geographical-domain.qmd)
+ - [Bank System UML (Class Diagram)](bank-system-uml.qmd)
+ - [Bank System UML MVC (Class Diagram MVC)](bank-system-uml-MVC.qmd)
+ - [MVC Architecture overview](MVC-architecture-overview_v1.qmd)
+ - [SQL server to H2 ](sqlserver-to-H2.qmd)
+ - [Domain model (classes)](classes.qmd)
+ - [Roadmap & Versions](roadmap.qmd)
+ - [Installation & Quick start](installation.qmd)
+ - [Testing](testing.qmd)
+ - [Persistence & H2](persistence.qmd)
+ - [Contributing](contributing.qmd)
+ - [Changelog](changelog.qmd)
+ - [Javadoc "A small explanation"](javadoc-readme.qmd)
+ - [Quarto project](quarto-project.qmd)
+ - [License & Contact](#license--contact)
+
+ ***
+ 
+ 
 

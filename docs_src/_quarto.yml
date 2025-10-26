@@ -3,18 +3,48 @@ project:
   output-dir: docs
 
 website:
-  title: "BankAlpy Backend Project"
-  description: "Backend Java MVC project with persistence and documentation in Quarto"
+  title: "BankAlpy a Java Backend Project"
+  description: "Backend Java with a MVC project structure with persistence and documentation in Quarto and Javadoc"
   navbar:
     left:
       - href: index.qmd
         text: Home
+      - href: overview.qmd
+        text: Overview
+      - href: actions-build-badge.qmd
+        text: GitHub Actions Build Badge
       - href: architecture.qmd
-        text: Architecture
-      - href: setup.qmd
-        text: Setup
-      - href: uml.qmd
-        text: UML Diagram
+        text: Architecture & Design
+      - href: logical-domain.qmd
+        text: ER diagram Logic Domain
+      - href: geographical-domain.qmd
+        text: ER diagram Geo Domain
+      - href: bank-system-uml.qmd
+        text: UML Bank System.
+      - href: bank-system-uml-MVC.qmd
+        text: UML Bank System MVC.
+      - href: MVC-architecture-overview_v1.qmd
+        text: Architecture overview MVC
+      - href: sqlserver-to-H2.qmd
+        text: SQLServer to H2
+      - href: classes.qmd
+        text: Model Classes
+      - href: roadmap.qmd
+        text: Roadmap & Version
+      - href: installation.qmd
+        text: Installation & Quick Start
+      - href: testing.qmd
+        text: Testing
+      - href: persistence.qmd
+        text: persistence
+      - href: contributing.qmd
+        text: Contributing
+      - href: changelog.qmd
+        text: changelog
+      - href: javadoc-readme.qmd
+        text: Javadoc"A small explanation"
+      - href: quarto-project.qmd
+        text: Quarto Project
   page-navigation: true
   repo-url: "https://github.com/alexpjava/BankAlpy"
   repo-actions: [issue, edit, source]

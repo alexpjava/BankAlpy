@@ -1,0 +1,394 @@
+[
+  {
+    "objectID": "uml.html",
+    "href": "uml.html",
+    "title": "UML Diagram",
+    "section": "",
+    "text": "UML Diagram\n```mermaid classDiagram Customer “1” –&gt; “” Account Account ”1” –&gt; ”” Transaction"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "BankAlpy Project",
+    "section": "",
+    "text": "BankAlpy is a backend Java project built using the MVC architecture. It begins as a simple console application using in-memory data structures and evolves toward full persistence with H2 SQL and Spring Boot."
+  },
+  {
+    "objectID": "architecture.html",
+    "href": "architecture.html",
+    "title": "Architecture & Desing",
+    "section": "",
+    "text": "Simple package layout (domain + basic services).\nIn-memory repositories using HashMap or lists.\nNo framework dependency — plain Maven Java project."
+  },
+  {
+    "objectID": "overview.html",
+    "href": "overview.html",
+    "title": "Overview",
+    "section": "",
+    "text": "BankAlpy is a backend project built in Java to practice object-oriented design, persistence, testing, and backend architecture. The project is structured around the MVC pattern:\n\nModel → Domain entities (Customer, Account, Transaction, Loan)\nView → A simple CLI interface in the first versions (later replaced with REST endpoints)\nController → Orchestration layer managing business logic\n\nIt starts with in-memory storage (HashMap / List), then integrates with H2 Database for SQL persistence, and later migrates to Spring Boot to expose APIs."
+  },
+  {
+    "objectID": "overview.html#overview-1",
+    "href": "overview.html#overview-1",
+    "title": "Overview",
+    "section": "",
+    "text": "BankAlpy is a backend project built in Java to practice object-oriented design, persistence, testing, and backend architecture. The project is structured around the MVC pattern: - Model → Domain entities (Customer, Account, Transaction, Loan) - View → A simple CLI interface in the first versions (later replaced with REST endpoints) - Controller → Orchestration layer managing business logic\nIt starts with in-memory storage (HashMap / List), then integrates with H2 Database for SQL persistence, and later migrates to Spring Boot to expose APIs."
+  },
+  {
+    "objectID": "overview.html#features",
+    "href": "overview.html#features",
+    "title": "Overview",
+    "section": "Features",
+    "text": "Features\n\n✅ MVC architecture (Model–View–Controller)\n✅ In-memory persistence with Lists / HashMaps\n✅ Domain entities: Customer, Account, Transaction, Loan\n✅ Basic Controller + CLI view\n✅ Unit tests with JUnit\n✅ Documentation website built with Quarto"
+  },
+  {
+    "objectID": "overview.html#goals",
+    "href": "overview.html#goals",
+    "title": "Overview",
+    "section": "Goals",
+    "text": "Goals\n\nLearn backend development in Java.\nStart with simple persistence (arrays, hashmaps).\nEvolve to SQL persistence.\nUse Maven and later migrate to Spring Boot.\nImplement JUnit testing."
+  },
+  {
+    "objectID": "overview.html#project-structure-and-repository-layout",
+    "href": "overview.html#project-structure-and-repository-layout",
+    "title": "Overview",
+    "section": "Project Structure and Repository layout",
+    "text": "Project Structure and Repository layout\n/bankalpy\n├─ pom.xml\n├─ README.md\n├─ .gitignore\n├─ docs/                       # Compiled Quarto documentation (output → GitHub Pages)\n├─ docs_src/                   # Source documentation for Quarto\n│  ├─ _quarto.yml              # Quarto configuration file\n│  ├─ index.qmd                # Main documentation page\n│  ├─ architecture.qmd         # MVC architecture explanation + UML\n│  ├─ setup.qmd                # Environment setup (Java, Maven, H2)\n│  └─ roadmap.qmd              # Project roadmap and evolution\n├─ src/\n│  ├─ main/\n│  │  ├─ java/com/bankalpy/\n│  │  │  ├─ model/             # Entities: Customer, Account, Transaction, Loan\n│  │  │  ├─ repository/        # DAO interfaces + in-memory implementations\n│  │  │  ├─ controller/        # Controllers (business logic)\n│  │  │  ├─ view/              # CLI-based View (later replaced by REST API)\n│  │  │  └─ App.java           # Application entry point\n│  │  └─ resources/\n│  │     └─ application.properties  # Configurations (H2 will be defined here)\n│  └─ test/java/com/bankalpy/\n│     ├─ repository/           # Repository tests\n│     └─ controller/           # Controller tests\n├─ sql/\n│  ├─ schema.sql               # H2 schema definition\n│  └─ data.sql                 # Initial dataset\n├─ .github/\n│  └─ workflows/\n│     ├─ ci.yml                # GitHub Actions for build/test\n│     └─ publish.yml           # Workflow for Quarto site deployment\n\n⬅️ Back to Index"
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Setup",
+    "section": "",
+    "text": "Setup Instructions\nInstructions to set up the BankAlpy project:\n\nJava 17\nMaven 3.8+\nH2 Database\nQuarto for documentation"
+  },
+  {
+    "objectID": "architecture.html#initial-architecture-v1",
+    "href": "architecture.html#initial-architecture-v1",
+    "title": "Architecture & Desing",
+    "section": "",
+    "text": "Simple package layout (domain + basic services).\nIn-memory repositories using HashMap or lists.\nNo framework dependency — plain Maven Java project."
+  },
+  {
+    "objectID": "architecture.html#target-architecture",
+    "href": "architecture.html#target-architecture",
+    "title": "Architecture & Desing",
+    "section": "Target architecture",
+    "text": "Target architecture\n\nMVC (Model — Service/Controller — Repository) when moving to an application architecture.\nWhen migrating to Spring Boot:\n\nControllers → Spring REST controllers (@RestController)\nServices → @Service beans\nRepositories → Spring Data JPA (@Repository / JpaRepository) backed by H2 during development\nUse configuration profiles (e.g., dev, test, prod)"
+  },
+  {
+    "objectID": "architecture.html#layers-responsibilities",
+    "href": "architecture.html#layers-responsibilities",
+    "title": "Architecture & Desing",
+    "section": "Layers & responsibilities",
+    "text": "Layers & responsibilities\n\nDomain (Model): POJOs that represent Customer, Account, Transaction, Loan.\nService: Business logic (loan validation, payment scheduling, transaction orchestration).\nRepository: Data access (initially in-memory; later JPA/H2).\nController / CLI / UI: Entry points for interaction (later REST API or CLI)."
+  },
+  {
+    "objectID": "architecture.html#non-functional-considerations",
+    "href": "architecture.html#non-functional-considerations",
+    "title": "Architecture & Desing",
+    "section": "Non-functional considerations",
+    "text": "Non-functional considerations\n\nUse BigDecimal for monetary values (avoid float/double).\nUse LocalDate / LocalDateTime for dates/timestamps.\nAvoid static ID counters for production; use DB-generated IDs.\nPlan migrations with Flyway or Liquibase when moving beyond H2.\n\n\n⬅️ Back to Index"
+  },
+  {
+    "objectID": "quarto-project.html",
+    "href": "quarto-project.html",
+    "title": "Quarto Project",
+    "section": "",
+    "text": "Quarto is an open-source scientific and technical publishing system that lets you create documents, presentations, and websites from Markdown (.md) or Quarto (.qmd) files.\nIt’s designed for reproducible documentation, meaning you can mix code, text, and output (such as charts or tables) in a single file — perfect for technical projects, reports, and developer documentation.\n\n\n\n\nQuarto processes .qmd or .md files and converts them into a final format such as HTML, PDF, Word, or slides.\nIt’s similar to Markdown, but more powerful thanks to its YAML header and built-in rendering engine.\n\n\n***\ntitle: \"My Project Documentation\"\nauthor: \"Teoria BankAlpy\"\nformat: html\n***\n\n# Introduction\n\nThis is a Quarto document.  \nYou can write Markdown text, include images, and even run code blocks.\n\n::: {#4546339f .cell execution_count=1}\n``` {.python .cell-code}\nprint(\"Hello from Python!\")\n\nHello from Python!\n\n:::\n\n### 🔍 Explanation\n\n* The `***` section at the top is called the **YAML header**.\n  It defines metadata (title, author, format, etc.).\n* Below the header, you write **regular Markdown**, but you can also embed code blocks with `{}` to execute them dynamically.\n\n***\n\n## 🛠 How to Render Your Documentation\n\n### 1. Install Quarto\n\nYou can [download Quarto](https://quarto.org/docs/get-started/) for your system or install it via terminal:\n\n```bash\n# macOS or Linux\nbrew install quarto\n\n# Windows (PowerShell)\nwinget install quarto\n\n\n\nTo convert a .qmd or .md file into an HTML page:\nquarto render myfile.qmd\nYou’ll get an output file (like myfile.html) in the same directory.\nIf your project contains multiple files, Quarto can automatically build the entire site:\nquarto preview\nThis command launches a local web server and updates the site automatically when you modify files.\n\n\n\n\n\nYou can publish your documentation as a static website directly from your repository.\n\n\nproject/\n├── index.qmd\n├── setup.qmd\n├── architecture.qmd\n├── uml.qmd\n└── _quarto.yml\nThe _quarto.yml file defines how your site is organized:\nproject:\n  type: website\n\nwebsite:\n  title: \"BankAlpy Project\"\n  navbar:\n    left:\n      - text: \"Setup\"\n        href: setup.qmd\n      - text: \"Architecture\"\n        href: architecture.qmd\n      - text: \"UML\"\n        href: uml.qmd\nThen, to publish your site:\nquarto publish gh-pages\n\n\n\n\n\n\nWrite once, publish anywhere (HTML, PDF, DOCX, Reveal.js slides, etc.)\nCombine Markdown + Code + Output in one file.\nAutomatically generate professional websites and docs.\nIntegrates with R, Python, Julia, and Observable JS.\nPerfect for developer documentation and data-driven reports."
+  },
+  {
+    "objectID": "quarto-project.html#what-is-quarto",
+    "href": "quarto-project.html#what-is-quarto",
+    "title": "Quarto Project",
+    "section": "",
+    "text": "Quarto is an open-source scientific and technical publishing system that lets you create documents, presentations, and websites from Markdown (.md) or Quarto (.qmd) files.\nIt’s designed for reproducible documentation, meaning you can mix code, text, and output (such as charts or tables) in a single file — perfect for technical projects, reports, and developer documentation."
+  },
+  {
+    "objectID": "quarto-project.html#how-quarto-works",
+    "href": "quarto-project.html#how-quarto-works",
+    "title": "Quarto Project",
+    "section": "",
+    "text": "Quarto processes .qmd or .md files and converts them into a final format such as HTML, PDF, Word, or slides.\nIt’s similar to Markdown, but more powerful thanks to its YAML header and built-in rendering engine.\n\n\n***\ntitle: \"My Project Documentation\"\nauthor: \"Teoria BankAlpy\"\nformat: html\n***\n\n# Introduction\n\nThis is a Quarto document.  \nYou can write Markdown text, include images, and even run code blocks.\n\n::: {#4546339f .cell execution_count=1}\n``` {.python .cell-code}\nprint(\"Hello from Python!\")\n\nHello from Python!\n\n:::\n\n### 🔍 Explanation\n\n* The `***` section at the top is called the **YAML header**.\n  It defines metadata (title, author, format, etc.).\n* Below the header, you write **regular Markdown**, but you can also embed code blocks with `{}` to execute them dynamically.\n\n***\n\n## 🛠 How to Render Your Documentation\n\n### 1. Install Quarto\n\nYou can [download Quarto](https://quarto.org/docs/get-started/) for your system or install it via terminal:\n\n```bash\n# macOS or Linux\nbrew install quarto\n\n# Windows (PowerShell)\nwinget install quarto\n\n\n\nTo convert a .qmd or .md file into an HTML page:\nquarto render myfile.qmd\nYou’ll get an output file (like myfile.html) in the same directory.\nIf your project contains multiple files, Quarto can automatically build the entire site:\nquarto preview\nThis command launches a local web server and updates the site automatically when you modify files."
+  },
+  {
+    "objectID": "quarto-project.html#publishing-a-website-with-quarto",
+    "href": "quarto-project.html#publishing-a-website-with-quarto",
+    "title": "Quarto Project",
+    "section": "",
+    "text": "You can publish your documentation as a static website directly from your repository.\n\n\nproject/\n├── index.qmd\n├── setup.qmd\n├── architecture.qmd\n├── uml.qmd\n└── _quarto.yml\nThe _quarto.yml file defines how your site is organized:\nproject:\n  type: website\n\nwebsite:\n  title: \"BankAlpy Project\"\n  navbar:\n    left:\n      - text: \"Setup\"\n        href: setup.qmd\n      - text: \"Architecture\"\n        href: architecture.qmd\n      - text: \"UML\"\n        href: uml.qmd\nThen, to publish your site:\nquarto publish gh-pages"
+  },
+  {
+    "objectID": "quarto-project.html#benefits-of-quarto",
+    "href": "quarto-project.html#benefits-of-quarto",
+    "title": "Quarto Project",
+    "section": "",
+    "text": "Write once, publish anywhere (HTML, PDF, DOCX, Reveal.js slides, etc.)\nCombine Markdown + Code + Output in one file.\nAutomatically generate professional websites and docs.\nIntegrates with R, Python, Julia, and Observable JS.\nPerfect for developer documentation and data-driven reports."
+  },
+  {
+    "objectID": "logical-domain.html",
+    "href": "logical-domain.html",
+    "title": "ER Diagram Logical Domain",
+    "section": "",
+    "text": "This page contains the ER diagram “Entity Relation Diagram” use to describe all the relations between the entities in a data base. In this case it shows a simplest abd logical banking domain with the following entities: - Customer - Account - Transactions - Loans - Currency - AccountType"
+  },
+  {
+    "objectID": "bank-system-uml.html",
+    "href": "bank-system-uml.html",
+    "title": "Bank System UML",
+    "section": "",
+    "text": "This page shows a UML Class Diagram for a Bank System. The diagram helps us understand how the different parts of a banking system work together.\nA UML Class Diagram is a way to visually show the main entities in a system, their attributes (information they store), and how they are connected. It’s like a blueprint of the system’s data.\nThe diagram includes classes like:\n\nCustomer – represents people who have accounts in the bank.\nAccount – shows details about each bank account, such as the balance and type.\nCurrency and AccountType – describe what kind of money and account are used.\nBankTransaction – records the money movements (like deposits or withdrawals).\nLoan – represents money borrowed by a customer.\n\nThere are also linking classes like AccountCustomer and CurrencyAccountType that connect the main parts together.\nThis diagram gives a clear picture of how data is organized in a bank system and how the different parts are related."
+  },
+  {
+    "objectID": "MVC-architecture-overview_v1.html",
+    "href": "MVC-architecture-overview_v1.html",
+    "title": "MVC Architecture",
+    "section": "",
+    "text": "This document explains the Model–View–Controller (MVC) architecture pattern using plain Java and Maven.\nUnderstanding this foundation will help you design clean, modular, and maintainable backend systems.\nThe project is a simple banking system built with Java, Maven, and an H2 in-memory database, following MVC for code organization. ***\n\n\n\nMVC Structure\nTypical Project Structure\nModel (M)\nView (V)\nController (C)\nBusiness Logic & Service Layer\nSummary\nFurther Reading\n\n\n⬅️ Back to Index\n\n\n\nMVC stands for: - Model – Data and business logic (e.g., Account, Customer, Loan, Transaction). - View – User interface (console, API output, or GUI). - Controller – Handles user requests, interacts with the model, and updates the view.\nFlow diagram:\nUser → Controller → Model (Business Logic + Data) → Controller → View\nBelow is an architecture diagram representing the structure of the Bank project, including major business logic components.\n\n\n\n\n\n\n\ngraph TD\n    subgraph Model[\"🟩 Model Layer\"]\n        A1[Account]\n        A2[Customer]\n        A3[Loan]\n        A4[BankTransaction]\n    end\n\n    subgraph Repository[\"🗄️ Repository Layer\"]\n        R1[AccountRepository]\n        R2[CustomerRepository]\n        R3[LoanRepository]\n        R4[TransactionRepository]\n    end\n\n    subgraph Service[\"⚙️ Service Layer (Business Logic)\"]\n        S1[\"AccountService\n        ***\n        deposit()\n        withdraw()\n        transfer()\"]\n\n        S2[\"CustomerService\n        ***\n        registerCustomer()\n        validateCustomer()\"]\n\n        S3[\"LoanService\n        ***\n        createLoan()\n        payLoan()\n        checkLoanStatus()\"]\n\n        S4[\"TransactionService\n        ***\n        recordTransaction()\n        getHistory()\"]\n    end\n\n    subgraph Controller[\"🎯 Controller Layer\"]\n        C1[AccountController]\n        C2[CustomerController]\n        C3[LoanController]\n    end\n\n    subgraph View[\"🖥️ View Layer\"]\n        V1[Console CLI / Tests]\n    end\n\n    V1 --&gt; C1\n    V1 --&gt; C2\n    V1 --&gt; C3\n\n    C1 --&gt; S1\n    C2 --&gt; S2\n    C3 --&gt; S3\n\n    S1 --&gt; R1\n    S1 --&gt; S4\n    S2 --&gt; R2\n    S3 --&gt; R3\n    S4 --&gt; R4\n\n    R1 --&gt; A1\n    R2 --&gt; A2\n    R3 --&gt; A3\n    R4 --&gt; A4\n\n\n\n\n\n\n\n\n\n\n\nbank-project/\n ├── src/main/java/com/example/bank/\n │    ├── model/\n │    │    ├── Account.java\n │    │    ├── Customer.java\n │    │    ├── Loan.java\n │    │    ├── Transaction.java\n │    │    ├── Currency.java            # To be implemented in future versions\n │    │    ├── AccountType.java         # To be implemented in future versions\n │    │    └── CurrencyAccount.java     # To be implemented in future versions\n │    ├── service/\n │    │    ├── AccountService.java\n │    │    ├── CustomerService.java\n │    │    ├── TransactionService.java\n │    │    └── LoanService.java\n │    ├── repository/\n │    │    ├── AccountRepository.java\n │    │    ├── CustomerRepository.java\n │    │    ├── LoanRepository.java\n │    │    ├── TransactionRepository.java\n │    ├── controller/\n │    │    └── BankController.java\n │    └── App.java  (entry point)\n └── pom.xml\nTip: The project structure follows best practices for separating concerns, making future upgrades (like adding Spring Boot) easier.\n\n\n\n\nModels are your data classes and everything related to data persistence.\nIn this project: Account, Customer, Loan, BankTransaction.\nModels define attributes (e.g., balance, loanAmount) and relationships, and may include simple validation.\nExample – simple Account model:\npublic class Account {\n    private int id;\n    private String owner;\n    private double balance;\n\n    // Constructor, getters, setters\n\n    // Optional: basic validation\n    public void setBalance(double balance) {\n        if (balance &lt; 0) throw new IllegalArgumentException(\"Balance cannot be negative.\");\n        this.balance = balance;\n    }\n}\nModels interact with data sources such as files, memory, or databases (like H2).\n\n\n\n\nThe View is responsible for displaying information and receiving user input.\nWithout a web framework, this can be a console interface, a GUI (Swing, JavaFX), or API responses (for REST).\nExample – console-based BankView:\npublic class BankView {\n    public void showBalance(double balance) {\n        System.out.println(\"Your current balance is: \" + balance + \" €\");\n    }\n\n    public void showMessage(String message) {\n        System.out.println(message);\n    }\n}\n\nNote: The View should only handle presentation and user interaction—not business logic.\n\nTip: You can swap the View for a different interface (e.g., web frontend) without changing the Model or Controller logic.\n\n\n\n\nThe Controller acts as a bridge between View and Model.\nIt receives user actions, calls appropriate services, updates the Model, and refreshes the View as needed.\nExample – BankController:\npublic class BankController {\n    private final AccountService accountService;\n    private final BankView view;\n\n    public BankController(AccountService accountService, BankView view) {\n        this.accountService = accountService;\n        this.view = view;\n    }\n\n    public void makeDeposit(long accountId, double amount) {\n        try {\n            accountService.deposit(accountId, amount);\n            view.showMessage(\"Deposit completed successfully.\");\n            view.showBalance(accountService.getBalance(accountId));\n        } catch (Exception e) {\n            view.showMessage(\"Error: \" + e.getMessage());\n        }\n    }\n\n    public void makeWithdrawal(long accountId, double amount) {\n        try {\n            accountService.withdraw(accountId, amount);\n            view.showBalance(accountService.getBalance(accountId));\n        } catch (Exception e) {\n            view.showMessage(\"Error: \" + e.getMessage());\n        }\n    }\n}\nIn App.java, you typically create and connect these objects:\npublic class App {\n    public static void main(String[] args) {\n        AccountRepository repo = new AccountRepository();\n        AccountService service = new AccountService(repo);\n        BankView view = new BankView();\n        BankController controller = new BankController(service, view);\n\n        controller.makeDeposit(1L, 100);\n        controller.makeWithdrawal(1L, 40);\n    }\n}\nTip: Controllers should remain thin and delegate business rules to the Service layer.\n\n\n\n\nBusiness logic defines the rules and behaviors of the banking domain—not just data storage.\nExamples: - You can’t make a transfer if the account has insufficient funds. - When creating a loan, the system must calculate the monthly payment. - A customer can have multiple accounts.\nWhere does business logic go in MVC?\nUsually, in a Service layer between the Controller and the Model.\nThis keeps Controllers clean—focused on handling requests and responses.\n\n\n\nDomain Classes (Entities):\nAccount, Customer, Loan, Transaction\n— Hold attributes and simple behaviors.\nService Classes (Business Logic):\nAccountService, LoanService, etc.\n— Contain methods such as deposit(), withdraw(), transfer(), with validation and error handling.\nRepository or DAO Classes (Persistence):\nAccountRepository, etc.\n— Handle saving and reading data from H2.\n\nRepository Example:\npublic class AccountRepository {\n    public Account findById(Long id) { /* ... */ }\n    public void update(Account account) { /* ... */ }\n}\nService Example:\npackage com.bankalpy.service;\n\nimport com.bankalpy.model.Account;\nimport com.bankalpy.repository.AccountRepository;\n\npublic class AccountService {\n    private final AccountRepository accountRepository;\n\n    public AccountService(AccountRepository accountRepository) {\n        this.accountRepository = accountRepository;\n    }\n\n    public void deposit(Long accountId, double amount) {\n        Account account = accountRepository.findById(accountId);\n        account.setBalance(account.getBalance() + amount);\n        accountRepository.update(account);\n    }\n\n    public void withdraw(Long accountId, double amount) {\n        Account account = accountRepository.findById(accountId);\n        if (account.getBalance() &lt; amount) {\n            throw new IllegalArgumentException(\"Insufficient funds.\");\n        }\n        account.setBalance(account.getBalance() - amount);\n        accountRepository.update(account);\n    }\n\n    public double getBalance(Long accountId) {\n        return accountRepository.findById(accountId).getBalance();\n    }\n}\n\n\n\n\n\n\nModel: Defines entities and basic behaviors.\nController: Mediates between user actions and services.\nView: Displays results and receives input.\nService: Contains business logic and validation.\nRepository: Manages data persistence.\n\nGoal:\nKeep responsibilities clear and code modular—preparing for future framework integration (e.g., Spring Boot).\n\n\n\n\n\nSpring Framework: MVC Pattern\nJava MVC Design Pattern\nH2 Database Introduction"
+  },
+  {
+    "objectID": "MVC-architecture-overview_v1.html#table-of-contents",
+    "href": "MVC-architecture-overview_v1.html#table-of-contents",
+    "title": "MVC Architecture",
+    "section": "",
+    "text": "MVC Structure\nTypical Project Structure\nModel (M)\nView (V)\nController (C)\nBusiness Logic & Service Layer\nSummary\nFurther Reading\n\n\n⬅️ Back to Index"
+  },
+  {
+    "objectID": "MVC-architecture-overview_v1.html#mvc-structure",
+    "href": "MVC-architecture-overview_v1.html#mvc-structure",
+    "title": "MVC Architecture",
+    "section": "",
+    "text": "MVC stands for: - Model – Data and business logic (e.g., Account, Customer, Loan, Transaction). - View – User interface (console, API output, or GUI). - Controller – Handles user requests, interacts with the model, and updates the view.\nFlow diagram:\nUser → Controller → Model (Business Logic + Data) → Controller → View\nBelow is an architecture diagram representing the structure of the Bank project, including major business logic components.\n\n\n\n\n\n\n\ngraph TD\n    subgraph Model[\"🟩 Model Layer\"]\n        A1[Account]\n        A2[Customer]\n        A3[Loan]\n        A4[BankTransaction]\n    end\n\n    subgraph Repository[\"🗄️ Repository Layer\"]\n        R1[AccountRepository]\n        R2[CustomerRepository]\n        R3[LoanRepository]\n        R4[TransactionRepository]\n    end\n\n    subgraph Service[\"⚙️ Service Layer (Business Logic)\"]\n        S1[\"AccountService\n        ***\n        deposit()\n        withdraw()\n        transfer()\"]\n\n        S2[\"CustomerService\n        ***\n        registerCustomer()\n        validateCustomer()\"]\n\n        S3[\"LoanService\n        ***\n        createLoan()\n        payLoan()\n        checkLoanStatus()\"]\n\n        S4[\"TransactionService\n        ***\n        recordTransaction()\n        getHistory()\"]\n    end\n\n    subgraph Controller[\"🎯 Controller Layer\"]\n        C1[AccountController]\n        C2[CustomerController]\n        C3[LoanController]\n    end\n\n    subgraph View[\"🖥️ View Layer\"]\n        V1[Console CLI / Tests]\n    end\n\n    V1 --&gt; C1\n    V1 --&gt; C2\n    V1 --&gt; C3\n\n    C1 --&gt; S1\n    C2 --&gt; S2\n    C3 --&gt; S3\n\n    S1 --&gt; R1\n    S1 --&gt; S4\n    S2 --&gt; R2\n    S3 --&gt; R3\n    S4 --&gt; R4\n\n    R1 --&gt; A1\n    R2 --&gt; A2\n    R3 --&gt; A3\n    R4 --&gt; A4"
+  },
+  {
+    "objectID": "MVC-architecture-overview_v1.html#typical-project-structure",
+    "href": "MVC-architecture-overview_v1.html#typical-project-structure",
+    "title": "MVC Architecture",
+    "section": "",
+    "text": "bank-project/\n ├── src/main/java/com/example/bank/\n │    ├── model/\n │    │    ├── Account.java\n │    │    ├── Customer.java\n │    │    ├── Loan.java\n │    │    ├── Transaction.java\n │    │    ├── Currency.java            # To be implemented in future versions\n │    │    ├── AccountType.java         # To be implemented in future versions\n │    │    └── CurrencyAccount.java     # To be implemented in future versions\n │    ├── service/\n │    │    ├── AccountService.java\n │    │    ├── CustomerService.java\n │    │    ├── TransactionService.java\n │    │    └── LoanService.java\n │    ├── repository/\n │    │    ├── AccountRepository.java\n │    │    ├── CustomerRepository.java\n │    │    ├── LoanRepository.java\n │    │    ├── TransactionRepository.java\n │    ├── controller/\n │    │    └── BankController.java\n │    └── App.java  (entry point)\n └── pom.xml\nTip: The project structure follows best practices for separating concerns, making future upgrades (like adding Spring Boot) easier."
+  },
+  {
+    "objectID": "MVC-architecture-overview_v1.html#model-m",
+    "href": "MVC-architecture-overview_v1.html#model-m",
+    "title": "MVC Architecture",
+    "section": "",
+    "text": "Models are your data classes and everything related to data persistence.\nIn this project: Account, Customer, Loan, BankTransaction.\nModels define attributes (e.g., balance, loanAmount) and relationships, and may include simple validation.\nExample – simple Account model:\npublic class Account {\n    private int id;\n    private String owner;\n    private double balance;\n\n    // Constructor, getters, setters\n\n    // Optional: basic validation\n    public void setBalance(double balance) {\n        if (balance &lt; 0) throw new IllegalArgumentException(\"Balance cannot be negative.\");\n        this.balance = balance;\n    }\n}\nModels interact with data sources such as files, memory, or databases (like H2)."
+  },
+  {
+    "objectID": "MVC-architecture-overview_v1.html#view-v",
+    "href": "MVC-architecture-overview_v1.html#view-v",
+    "title": "MVC Architecture",
+    "section": "",
+    "text": "The View is responsible for displaying information and receiving user input.\nWithout a web framework, this can be a console interface, a GUI (Swing, JavaFX), or API responses (for REST).\nExample – console-based BankView:\npublic class BankView {\n    public void showBalance(double balance) {\n        System.out.println(\"Your current balance is: \" + balance + \" €\");\n    }\n\n    public void showMessage(String message) {\n        System.out.println(message);\n    }\n}\n\nNote: The View should only handle presentation and user interaction—not business logic.\n\nTip: You can swap the View for a different interface (e.g., web frontend) without changing the Model or Controller logic."
+  },
+  {
+    "objectID": "MVC-architecture-overview_v1.html#controller-c",
+    "href": "MVC-architecture-overview_v1.html#controller-c",
+    "title": "MVC Architecture",
+    "section": "",
+    "text": "The Controller acts as a bridge between View and Model.\nIt receives user actions, calls appropriate services, updates the Model, and refreshes the View as needed.\nExample – BankController:\npublic class BankController {\n    private final AccountService accountService;\n    private final BankView view;\n\n    public BankController(AccountService accountService, BankView view) {\n        this.accountService = accountService;\n        this.view = view;\n    }\n\n    public void makeDeposit(long accountId, double amount) {\n        try {\n            accountService.deposit(accountId, amount);\n            view.showMessage(\"Deposit completed successfully.\");\n            view.showBalance(accountService.getBalance(accountId));\n        } catch (Exception e) {\n            view.showMessage(\"Error: \" + e.getMessage());\n        }\n    }\n\n    public void makeWithdrawal(long accountId, double amount) {\n        try {\n            accountService.withdraw(accountId, amount);\n            view.showBalance(accountService.getBalance(accountId));\n        } catch (Exception e) {\n            view.showMessage(\"Error: \" + e.getMessage());\n        }\n    }\n}\nIn App.java, you typically create and connect these objects:\npublic class App {\n    public static void main(String[] args) {\n        AccountRepository repo = new AccountRepository();\n        AccountService service = new AccountService(repo);\n        BankView view = new BankView();\n        BankController controller = new BankController(service, view);\n\n        controller.makeDeposit(1L, 100);\n        controller.makeWithdrawal(1L, 40);\n    }\n}\nTip: Controllers should remain thin and delegate business rules to the Service layer."
+  },
+  {
+    "objectID": "MVC-architecture-overview_v1.html#business-logic-service-layer",
+    "href": "MVC-architecture-overview_v1.html#business-logic-service-layer",
+    "title": "MVC Architecture",
+    "section": "",
+    "text": "Business logic defines the rules and behaviors of the banking domain—not just data storage.\nExamples: - You can’t make a transfer if the account has insufficient funds. - When creating a loan, the system must calculate the monthly payment. - A customer can have multiple accounts.\nWhere does business logic go in MVC?\nUsually, in a Service layer between the Controller and the Model.\nThis keeps Controllers clean—focused on handling requests and responses.\n\n\n\nDomain Classes (Entities):\nAccount, Customer, Loan, Transaction\n— Hold attributes and simple behaviors.\nService Classes (Business Logic):\nAccountService, LoanService, etc.\n— Contain methods such as deposit(), withdraw(), transfer(), with validation and error handling.\nRepository or DAO Classes (Persistence):\nAccountRepository, etc.\n— Handle saving and reading data from H2.\n\nRepository Example:\npublic class AccountRepository {\n    public Account findById(Long id) { /* ... */ }\n    public void update(Account account) { /* ... */ }\n}\nService Example:\npackage com.bankalpy.service;\n\nimport com.bankalpy.model.Account;\nimport com.bankalpy.repository.AccountRepository;\n\npublic class AccountService {\n    private final AccountRepository accountRepository;\n\n    public AccountService(AccountRepository accountRepository) {\n        this.accountRepository = accountRepository;\n    }\n\n    public void deposit(Long accountId, double amount) {\n        Account account = accountRepository.findById(accountId);\n        account.setBalance(account.getBalance() + amount);\n        accountRepository.update(account);\n    }\n\n    public void withdraw(Long accountId, double amount) {\n        Account account = accountRepository.findById(accountId);\n        if (account.getBalance() &lt; amount) {\n            throw new IllegalArgumentException(\"Insufficient funds.\");\n        }\n        account.setBalance(account.getBalance() - amount);\n        accountRepository.update(account);\n    }\n\n    public double getBalance(Long accountId) {\n        return accountRepository.findById(accountId).getBalance();\n    }\n}"
+  },
+  {
+    "objectID": "MVC-architecture-overview_v1.html#summary",
+    "href": "MVC-architecture-overview_v1.html#summary",
+    "title": "MVC Architecture",
+    "section": "",
+    "text": "Model: Defines entities and basic behaviors.\nController: Mediates between user actions and services.\nView: Displays results and receives input.\nService: Contains business logic and validation.\nRepository: Manages data persistence.\n\nGoal:\nKeep responsibilities clear and code modular—preparing for future framework integration (e.g., Spring Boot)."
+  },
+  {
+    "objectID": "MVC-architecture-overview_v1.html#further-reading",
+    "href": "MVC-architecture-overview_v1.html#further-reading",
+    "title": "MVC Architecture",
+    "section": "",
+    "text": "Spring Framework: MVC Pattern\nJava MVC Design Pattern\nH2 Database Introduction"
+  },
+  {
+    "objectID": "geographical-domain.html",
+    "href": "geographical-domain.html",
+    "title": "ER Diagram Geographical Domain",
+    "section": "",
+    "text": "This diagram include to the previous Logical domein, the following entities and their relations: - Address - ZipCode - City - Country - StreetType This part of the project is put on hold to make it easier to manage in the early stages of its development and will be added at the end of the process for adaptation."
+  },
+  {
+    "objectID": "bank-system-uml-MVC.html",
+    "href": "bank-system-uml-MVC.html",
+    "title": "UML Bank System MVC",
+    "section": "",
+    "text": "Controller → the layer that handles user or API requests (input).\nService → contains the business logic of the application.\nRepository → the persistence layer (in this version it may use HashMap, later migrating to H2/SQL).\nModel → domain classes (Customer, Account, Transaction, Loan).\nThe relationships between the classes show:\n\nA Customer can have multiple Account objects.\nEach Account can contain several Transaction and Loan objects.\nA Loan also generates its own Transaction entries (loan deposits and withdrawals).\n\n\n\n⬅️ Back to Index"
+  },
+  {
+    "objectID": "bank-system-uml-MVC.html#uml-diagram-bankalpy-mvc-architecture",
+    "href": "bank-system-uml-MVC.html#uml-diagram-bankalpy-mvc-architecture",
+    "title": "UML Bank System MVC",
+    "section": "🧩 UML Diagram — BankAlpy (MVC Architecture)",
+    "text": "🧩 UML Diagram — BankAlpy (MVC Architecture)\n\n\n\n\n\nclassDiagram\ndirection LR\n\n%% ===== CAPAS MVC =====\nclass Controller {\n  +CustomerController\n  +AccountController\n  +TransactionController\n  +LoanController\n}\n\nclass Service {\n  +CustomerService\n  +AccountService\n  +TransactionService\n  +LoanService\n}\n\nclass Repository {\n  +CustomerRepository\n  +AccountRepository\n  +TransactionRepository\n  +LoanRepository\n}\n\n%% ====== MODELO DE DOMINIO ======\nclass Customer {\n  -int idCus\n  -String name\n  -String firstLastName\n  -String secondLastName\n  -String nif\n  -LocalDate dateBirth\n  -String sex\n  -String address\n  -String zipCode\n  -String city\n  -List~Account~ accounts\n  +getFullName()\n}\n\nclass Account {\n  -int idAccount\n  -String accountNumber\n  -LocalDate openingDate\n  -float balance\n  -boolean active\n  -List~Transaction~ transactions\n  -List~Loan~ loans\n  +deposit(amount)\n  +withdraw(amount)\n}\n\nclass Transaction {\n  -Type type\n  -float amount\n  -LocalDateTime date\n  -float balanceAfter\n}\n\nclass Type {\n  &lt;&lt;enumeration&gt;&gt;\n  DEPOSIT\n  WITHDRAWAL\n  LOAN_DEPOSIT\n  LOAN_WITHDRAWAL\n}\n\nclass Loan {\n  -int idLo\n  -float amount\n  -float interest\n  -LocalDate startDate\n  -LocalDate dueDate\n  -float remainingBalance\n  -boolean active\n  -List~Transaction~ transactions\n}\n\n%% ===== RELACIONES =====\nCustomer \"1\" --&gt; \"*\" Account\nAccount \"1\" --&gt; \"*\" Transaction\nAccount \"1\" --&gt; \"*\" Loan\nLoan \"1\" --&gt; \"*\" Transaction\nTransaction --&gt; Type : uses\n\n%% ===== CONEXIONES ENTRE CAPAS =====\nController --&gt; Service : calls\nService --&gt; Repository : uses\nRepository --&gt; Customer : manages\nRepository --&gt; Account : manages\nRepository --&gt; Transaction : manages\nRepository --&gt; Loan : manages"
+  },
+  {
+    "objectID": "sqlserver-to-H2.html",
+    "href": "sqlserver-to-H2.html",
+    "title": "SQL Server to H2",
+    "section": "",
+    "text": "This document summarizes the changes made to translate the original SQL Server script for the BankAlPy system into an H2-compatible script, keeping the same organization and constraint numbering for clarity.\n\n\n\n\n\n\nSQL Server uses IDENTITY(1,1) for auto-incrementing columns.\nH2 uses AUTO_INCREMENT.\nBIT type in SQL Server is replaced with BOOLEAN in H2.\nSQL Server GO statements are not needed in H2.\nConstraint and table existence checks use IF EXISTS differently in H2.\n\n\n\n\n\nSQL Server uses IF OBJECT_ID(..., 'F') IS NOT NULL to check foreign key existence.\nH2 uses ALTER TABLE IF EXISTS ... DROP CONSTRAINT IF EXISTS ....\nON DELETE CASCADE is preserved.\nAll constraint numbering (1–7) is preserved for easy reference.\n\n\n\n\n\nColumn types translated where necessary:\n\nVARCHAR remains the same.\nDECIMAL(18,2) remains the same.\nDATE remains the same.\n\nPrimary keys use AUTO_INCREMENT in H2.\nDEFAULT values updated as needed (e.g., IsActive default changed from 1 to TRUE).\n\n\n\n\n\nSQL Server DROP TABLE IF EXISTS and DROP CONSTRAINT translated to H2 syntax.\nOrder preserved to prevent foreign key conflicts.\n\n\n\n\n\nSections retained for clarity:\n\nDrop constraints if they exist.\nDrop tables if they exist.\nCreate tables.\nCreate constraints.\n\nComments preserved and translated to English where needed.\n\n\n\n\n\n\n\nThe translated script keeps all foreign key relationships intact.\nThe order of creation respects dependencies (tables without FKs created first).\nThe script is ready to be executed in an H2 database without further changes.\n\n\n\n\n\n\nH2 Database Documentation\nSQL Server to H2 type mappings and syntax adjustments"
+  },
+  {
+    "objectID": "sqlserver-to-H2.html#summary-of-changes",
+    "href": "sqlserver-to-H2.html#summary-of-changes",
+    "title": "SQL Server to H2",
+    "section": "",
+    "text": "SQL Server uses IDENTITY(1,1) for auto-incrementing columns.\nH2 uses AUTO_INCREMENT.\nBIT type in SQL Server is replaced with BOOLEAN in H2.\nSQL Server GO statements are not needed in H2.\nConstraint and table existence checks use IF EXISTS differently in H2.\n\n\n\n\n\nSQL Server uses IF OBJECT_ID(..., 'F') IS NOT NULL to check foreign key existence.\nH2 uses ALTER TABLE IF EXISTS ... DROP CONSTRAINT IF EXISTS ....\nON DELETE CASCADE is preserved.\nAll constraint numbering (1–7) is preserved for easy reference.\n\n\n\n\n\nColumn types translated where necessary:\n\nVARCHAR remains the same.\nDECIMAL(18,2) remains the same.\nDATE remains the same.\n\nPrimary keys use AUTO_INCREMENT in H2.\nDEFAULT values updated as needed (e.g., IsActive default changed from 1 to TRUE).\n\n\n\n\n\nSQL Server DROP TABLE IF EXISTS and DROP CONSTRAINT translated to H2 syntax.\nOrder preserved to prevent foreign key conflicts.\n\n\n\n\n\nSections retained for clarity:\n\nDrop constraints if they exist.\nDrop tables if they exist.\nCreate tables.\nCreate constraints.\n\nComments preserved and translated to English where needed."
+  },
+  {
+    "objectID": "sqlserver-to-H2.html#notes",
+    "href": "sqlserver-to-H2.html#notes",
+    "title": "SQL Server to H2",
+    "section": "",
+    "text": "The translated script keeps all foreign key relationships intact.\nThe order of creation respects dependencies (tables without FKs created first).\nThe script is ready to be executed in an H2 database without further changes."
+  },
+  {
+    "objectID": "sqlserver-to-H2.html#references",
+    "href": "sqlserver-to-H2.html#references",
+    "title": "SQL Server to H2",
+    "section": "",
+    "text": "H2 Database Documentation\nSQL Server to H2 type mappings and syntax adjustments"
+  },
+  {
+    "objectID": "installation.html",
+    "href": "installation.html",
+    "title": "Installation & Quick Start",
+    "section": "",
+    "text": "Java JDK 17+ (LTS recommended)\nMaven 3.6+\nGit\n\n\n\n\n\nClone repository:\n\ngit clone https://github.com/your-username/BankAlPy.git\ncd BankAlPy\n\n⬅️ Back to Index"
+  },
+  {
+    "objectID": "installation.html#prerequisites",
+    "href": "installation.html#prerequisites",
+    "title": "Installation & Quick Start",
+    "section": "",
+    "text": "Java JDK 17+ (LTS recommended)\nMaven 3.6+\nGit"
+  },
+  {
+    "objectID": "installation.html#build-current-non-spring-version",
+    "href": "installation.html#build-current-non-spring-version",
+    "title": "Installation & Quick Start",
+    "section": "",
+    "text": "Clone repository:\n\ngit clone https://github.com/your-username/BankAlPy.git\ncd BankAlPy\n\n⬅️ Back to Index"
+  },
+  {
+    "objectID": "overview.html#planned",
+    "href": "overview.html#planned",
+    "title": "Overview",
+    "section": "Planned:",
+    "text": "Planned:\n\nDAO interfaces for persistence abstraction\nSQL integration with H2 Database\nMigration to Spring Boot with REST API (View layer replaced)\nGitHub Actions for CI/CD\nOptional migration to Postgres/MySQL in production\nGitHub Pages publication for Quarto documentation"
+  },
+  {
+    "objectID": "index.html#bankalpy",
+    "href": "index.html#bankalpy",
+    "title": "BankAlpy Project",
+    "section": "",
+    "text": "BankAlpy is a backend Java project built using the MVC architecture. It begins as a simple console application using in-memory data structures and evolves toward full persistence with H2 SQL and Spring Boot."
+  },
+  {
+    "objectID": "index.html#goals",
+    "href": "index.html#goals",
+    "title": "BankAlpy Project",
+    "section": "🎯Goals",
+    "text": "🎯Goals\n\nUnderstand backend design in Java.\nApply the MVC architecture pattern.\nLearn persistence with H2 and SQL.\nGenerate documentation with Quarto and publish it on GitHub Pages."
+  },
+  {
+    "objectID": "index.html#sections",
+    "href": "index.html#sections",
+    "title": "BankAlpy Project",
+    "section": "📚 Sections",
+    "text": "📚 Sections\n\nProject overview\nArchitecture & Design\nActions Build Badge\nER Diagram Logical Domain\nER Diagram Geographical Domain\nBank System UML (Class Diagram)\nBank System UML MVC (Class Diagram MVC)\nMVC Architecture overview\nSQL server to H2\nDomain model (classes)\nRoadmap & Versions\nInstallation & Quick start\nTesting\nPersistence & H2\nContributing\nChangelog\nJavadoc “A small explanation”\nQuarto project\nLicense & Contact"
+  },
+  {
+    "objectID": "overview.html#project-description",
+    "href": "overview.html#project-description",
+    "title": "Overview",
+    "section": "",
+    "text": "BankAlpy is a backend project built in Java to practice object-oriented design, persistence, testing, and backend architecture. The project is structured around the MVC pattern:\n\nModel → Domain entities (Customer, Account, Transaction, Loan)\nView → A simple CLI interface in the first versions (later replaced with REST endpoints)\nController → Orchestration layer managing business logic\n\nIt starts with in-memory storage (HashMap / List), then integrates with H2 Database for SQL persistence, and later migrates to Spring Boot to expose APIs."
+  },
+  {
+    "objectID": "actions-build-badge.html",
+    "href": "actions-build-badge.html",
+    "title": "GitHub Actions Build Badge",
+    "section": "",
+    "text": "Link below:"
+  },
+  {
+    "objectID": "actions-build-badge.html#github-actions-build-badge-1",
+    "href": "actions-build-badge.html#github-actions-build-badge-1",
+    "title": "GitHub Actions Build Badge",
+    "section": "",
+    "text": "Link below:\n\n\n\nBuild\n\n\n\n\n\n\nIt is a dynamic status badge that is automatically generated by GitHub Actions.\n\nIt shows the status of the Continuous Integration (CI) workflow that you’ve configured in your repo under .github/workflows/ci.yml.\n\nIf the pipeline runs successfully (compiles and passes tests), the badge will appear in green with something like ✔ passing.\n\nIf it fails, it will turn red with ✖ failing.\n\n\n\n\n\n\nIn your repo, create a workflow (a YAML file inside .github/workflows/).\nMinimal example for Java + Maven:\nname: CI\n\non:\n  push:\n    branches: [ \"main\" ]\n  pull_request:\n    branches: [ \"main\" ]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v3\n\n      - name: Set up JDK 17\n        uses: actions/setup-java@v3\n        with:\n          distribution: 'temurin'\n          java-version: '17'\n\n      - name: Build with Maven\n        run: mvn -B package --file pom.xml\n\n⬅️ Back to Index"
+  },
+  {
+    "objectID": "actions-build-badge.html#what-is-it",
+    "href": "actions-build-badge.html#what-is-it",
+    "title": "GitHub Actions Build Badge",
+    "section": "🔎 What is it?",
+    "text": "🔎 What is it?\n\nIt is a dynamic status badge that is automatically generated by GitHub Actions.\n\nIt shows the status of the Continuous Integration (CI) workflow that you’ve configured in your repo under .github/workflows/ci.yml.\n\nIf the pipeline runs successfully (compiles and passes tests), the badge will appear in green with something like ✔ passing.\n\nIf it fails, it will turn red with ✖ failing."
+  },
+  {
+    "objectID": "actions-build-badge.html#how-does-it-work",
+    "href": "actions-build-badge.html#how-does-it-work",
+    "title": "GitHub Actions Build Badge",
+    "section": "⚙️ How does it work?",
+    "text": "⚙️ How does it work?\n\nIn your repo, create a workflow (a YAML file inside .github/workflows/).\nMinimal example for Java + Maven:\nname: CI\n\non:\n  push:\n    branches: [ \"main\" ]\n  pull_request:\n    branches: [ \"main\" ]\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v3\n\n      - name: Set up JDK 17\n        uses: actions/setup-java@v3\n        with:\n          distribution: 'temurin'\n          java-version: '17'\n\n      - name: Build with Maven\n        run: mvn -B package --file pom.xml\n\n⬅️ Back to Index"
+  },
+  {
+    "objectID": "logical-domain.html#logical-domain-erd",
+    "href": "logical-domain.html#logical-domain-erd",
+    "title": "ER Diagram Logical Domain",
+    "section": "",
+    "text": "This page contains the ER diagram “Entity Relation Diagram” use to describe all the relations between the entities in a data base. In this case it shows a simplest abd logical banking domain with the following entities: - Customer - Account - Transactions - Loans - Currency - AccountType"
+  },
+  {
+    "objectID": "logical-domain.html#erd-logical-domain",
+    "href": "logical-domain.html#erd-logical-domain",
+    "title": "ER Diagram Logical Domain",
+    "section": "ERD Logical Domain",
+    "text": "ERD Logical Domain\n\n\n\n\n\nerDiagram\n    CUSTOMER {\n        int IdCustomer PK\n        string NameCustomer\n        string FirstLastName\n        string SecondLastName\n        string NIF\n        date BirthDate\n    }\n\n    ACCOUNT {\n        int IdAccount PK\n        string AccountNumber\n        date OpeningDate\n        decimal Balance\n        boolean StatusAccount\n        int FkAccountType FK\n    }\n\n    BANK_TRANSACTION {\n        int IdBankTransaction PK\n        string TransactionType\n        decimal Amount\n        date TransactionDate\n        decimal BalanceAfter\n        int FkAccount FK\n    }\n\n    LOAN {\n        int IdLoan PK\n        decimal LoanAmount\n        decimal InterestRate\n        date StartDate\n        date DueDate\n        decimal RemainingBalance\n        boolean IsActive\n        int FkAccount FK\n    }\n\n    ACCOUNT_TYPE {\n        int IdAccountType PK\n        string AccountTypeName\n    }\n\n    CURRENCY {\n        int IdCurrency PK\n        string CurrencyName\n        string CurrencyCode\n    }\n\n    ACCOUNT_CUSTOMER {\n        int IdAccountCustomer PK\n        int FkAccount FK\n        int FkCustomer FK\n        int FkAccountType FK\n    }\n\n    CURRENCY_ACCOUNT_TYPE {\n        int IdCurrencyAccountType PK\n        int FkCurrency FK\n        int FkAccountType FK\n    }\n\n    %% Relationships\n    CUSTOMER ||--o{ ACCOUNT_CUSTOMER : \"owns\"\n    ACCOUNT ||--o{ ACCOUNT_CUSTOMER : \"linked_to\"\n    ACCOUNT_TYPE ||--o{ ACCOUNT_CUSTOMER : \"typed\"\n\n    ACCOUNT ||--o{ BANK_TRANSACTION : \"records\"\n    ACCOUNT ||--o{ LOAN : \"has\"\n    ACCOUNT }o--|| ACCOUNT_TYPE : \"type_of\"\n    ACCOUNT }o--|| CURRENCY : \"uses\"\n\n    CURRENCY ||--o{ CURRENCY_ACCOUNT_TYPE : \"assigned\"\n    ACCOUNT_TYPE ||--o{ CURRENCY_ACCOUNT_TYPE : \"assigned\"\n\n\n\n\n\n\n\n⬅️ Back to Index"
+  },
+  {
+    "objectID": "geographical-domain.html#geographical-domain-erd",
+    "href": "geographical-domain.html#geographical-domain-erd",
+    "title": "ER Diagram Geographical Domain",
+    "section": "",
+    "text": "This diagram include to the previous Logical domein, the following entities and their relations: - Address - ZipCode - City - Country - StreetType This part of the project is put on hold to make it easier to manage in the early stages of its development and will be added at the end of the process for adaptation."
+  },
+  {
+    "objectID": "geographical-domain.html#erd-geographical-domain-erd",
+    "href": "geographical-domain.html#erd-geographical-domain-erd",
+    "title": "ER Diagram Geographical Domain",
+    "section": "ERD Geographical Domain ERD",
+    "text": "ERD Geographical Domain ERD\n\n\n\n\n\nerDiagram\n    COUNTRY {\n        int IdCountry PK\n        string Country\n        string Abbreviation\n    }\n\n    CITY {\n        int IdCity PK\n        string City\n        int FkCountry FK\n    }\n\n    ZIPCODE {\n        int IdZipCode PK\n        string ZipCode\n    }\n\n    ZIPCODE_CITY {\n        int IdZipCodeCity PK\n        int FkZipCode FK\n        int FkCity FK\n    }\n\n    STREETTYPE {\n        int IdStreetType PK\n        string StreetType\n    }\n\n    ACCOUNT_ADDRESS {\n        int IdAddress PK\n        string StreetName\n        int NumberStreet\n        int FloorNumber\n        string DoorNumber\n        int FkStreetType FK\n        int FkZipCode FK\n    }\n\n    CUSTOMER_ADDRESS {\n        int IdCustomerAddress PK\n        int FkCustomer FK\n        int FkAddress FK\n    }\n\n    CUSTOMER {\n        int IdCustomer PK\n        string NameCustomer\n    }\n\n    %% Relationships\n    COUNTRY ||--o{ CITY : \"has\"\n    CITY ||--o{ ZIPCODE_CITY : \"linked\"\n    ZIPCODE ||--o{ ZIPCODE_CITY : \"linked\"\n    STREETTYPE ||--o{ ACCOUNT_ADDRESS : \"defines\"\n    ZIPCODE ||--o{ ACCOUNT_ADDRESS : \"belongs to\"\n    ACCOUNT_ADDRESS ||--o{ CUSTOMER_ADDRESS : \"linked\"\n    CUSTOMER ||--o{ CUSTOMER_ADDRESS : \"linked\"\n\n\n\n\n\n\n\n⬅️ Back to Index"
+  },
+  {
+    "objectID": "geographical-domain.html#erd-geographical-domain",
+    "href": "geographical-domain.html#erd-geographical-domain",
+    "title": "ER Diagram Geographical Domain",
+    "section": "ERD Geographical Domain",
+    "text": "ERD Geographical Domain\n\n\n\n\n\nerDiagram\n    COUNTRY {\n        int IdCountry PK\n        string Country\n        string Abbreviation\n    }\n\n    CITY {\n        int IdCity PK\n        string City\n        int FkCountry FK\n    }\n\n    ZIPCODE {\n        int IdZipCode PK\n        string ZipCode\n    }\n\n    ZIPCODE_CITY {\n        int IdZipCodeCity PK\n        int FkZipCode FK\n        int FkCity FK\n    }\n\n    STREETTYPE {\n        int IdStreetType PK\n        string StreetType\n    }\n\n    ACCOUNT_ADDRESS {\n        int IdAddress PK\n        string StreetName\n        int NumberStreet\n        int FloorNumber\n        string DoorNumber\n        int FkStreetType FK\n        int FkZipCode FK\n    }\n\n    CUSTOMER_ADDRESS {\n        int IdCustomerAddress PK\n        int FkCustomer FK\n        int FkAddress FK\n    }\n\n    CUSTOMER {\n        int IdCustomer PK\n        string NameCustomer\n    }\n\n    %% Relationships\n    COUNTRY ||--o{ CITY : \"has\"\n    CITY ||--o{ ZIPCODE_CITY : \"linked\"\n    ZIPCODE ||--o{ ZIPCODE_CITY : \"linked\"\n    STREETTYPE ||--o{ ACCOUNT_ADDRESS : \"defines\"\n    ZIPCODE ||--o{ ACCOUNT_ADDRESS : \"belongs to\"\n    ACCOUNT_ADDRESS ||--o{ CUSTOMER_ADDRESS : \"linked\"\n    CUSTOMER ||--o{ CUSTOMER_ADDRESS : \"linked\"\n\n\n\n\n\n\n\n⬅️ Back to Index"
+  },
+  {
+    "objectID": "bank-system-uml.html#overview",
+    "href": "bank-system-uml.html#overview",
+    "title": "Bank System UML",
+    "section": "",
+    "text": "This page shows a UML Class Diagram for a Bank System. The diagram helps us understand how the different parts of a banking system work together.\nA UML Class Diagram is a way to visually show the main entities in a system, their attributes (information they store), and how they are connected. It’s like a blueprint of the system’s data.\nThe diagram includes classes like:\n\nCustomer – represents people who have accounts in the bank.\nAccount – shows details about each bank account, such as the balance and type.\nCurrency and AccountType – describe what kind of money and account are used.\nBankTransaction – records the money movements (like deposits or withdrawals).\nLoan – represents money borrowed by a customer.\n\nThere are also linking classes like AccountCustomer and CurrencyAccountType that connect the main parts together.\nThis diagram gives a clear picture of how data is organized in a bank system and how the different parts are related."
+  },
+  {
+    "objectID": "bank-system-uml.html#bank-system-uml-class-diagram",
+    "href": "bank-system-uml.html#bank-system-uml-class-diagram",
+    "title": "Bank System UML",
+    "section": "Bank System UML (Class Diagram)",
+    "text": "Bank System UML (Class Diagram)\n\n\n\n\n\nclassDiagram\n    class Currency {\n        +int IdCurrency\n        +string CurrencyName\n        +string CurrencyCode\n    }\n\n    class AccountType {\n        +int IdAccountType\n        +string AccountTypeName\n    }\n\n    class CurrencyAccountType {\n        +int IdCurrencyAccountType\n        +int FkCurrency\n        +int FkAccountType\n    }\n\n    class Account {\n        +int IdAccount\n        +string AccountNumber\n        +date OpeningDate\n        +decimal Balance\n        +bool IsActive\n        +int FkAccountType\n    }\n\n    class Customer {\n        +int IdCustomer\n        +string FirstName\n        +string LastName1\n        +string LastName2\n        +string Sex\n        +string NIF\n        +date BirthDate\n        +string AddressLine\n        +string ZipCode\n        +string City\n    }\n\n    class AccountCustomer {\n        +int IdAccountCustomer\n        +string HolderType\n        +int FkAccount\n        +int FkCustomer\n    }\n\n    class BankTransaction {\n        +int IdBankTransaction\n        +string TransactionType\n        +decimal Amount\n        +date TransactionDate\n        +decimal BalanceAfter\n        +int FkAccount\n    }\n\n    class Loan {\n        +int IdLoan\n        +decimal LoanAmount\n        +decimal InterestRate\n        +date StartDate\n        +date DueDate\n        +decimal RemainingBalance\n        +bool IsActive\n        +int FkAccount\n    }\n\n    %% Relaciones (FK como asociaciones)\n    Currency \"1\" --&gt; \"many\" CurrencyAccountType : has\n    AccountType \"1\" --&gt; \"many\" CurrencyAccountType : has\n    AccountType \"1\" --&gt; \"many\" Account : defines\n    Account \"1\" --&gt; \"many\" AccountCustomer : linked\n    Customer \"1\" --&gt; \"many\" AccountCustomer : linked\n    Account \"1\" --&gt; \"many\" BankTransaction : performs\n    Account \"1\" --&gt; \"many\" Loan : grants\n\n\n\n\n\n\n\n⬅️ Back to Index"
+  }
+]

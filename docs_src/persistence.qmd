@@ -1,0 +1,23 @@
+---
+ title: "Persistence"
+---
+
+# Persistence & H2 (initial plan)
+
+## Strategy
+- Start with in-memory implementations (repositories using `ConcurrentHashMap`).
+- When moving to persistence:
+  - Use H2 in-memory or file-based database for development/testing.
+  - Use Spring Data JPA for repository layer when migrating to Spring Boot.
+  - Use a migration tool (Flyway or Liquibase) to manage schema changes.
+
+## H2 tips
+- H2 supports `AUTO_INCREMENT` and standard SQL types.
+- For Spring Boot, add dependency `com.h2database:h2` and configure `spring.datasource.url=jdbc:h2:mem:bankalpy`.
+- Enable H2 console for debugging in development mode.
+
+## Migration
+- Create SQL scripts under `sql/` and keep them under version control.
+- Use example schema in `docs/ER_UML.md` as the starting point.
+
+[⬅️ Back to Index](../README.md#table-of-contents)
