@@ -14,7 +14,7 @@ The goal is to learn and apply best practices while scaling the project step by 
 ![Build](https://github.com/AlexPJava/BankAlpy/actions/workflows/ci.yml/badge.svg)
 ![Docs](https://img.shields.io/badge/docs-built%20with%20Quarto-green)
 
-📘 **Documentación en línea:**
+📘 **Online Documentation:**
 [https://alexpjava.github.io/bankalpy](https://alexpjava.github.io/bankalpy)
 ---
 
